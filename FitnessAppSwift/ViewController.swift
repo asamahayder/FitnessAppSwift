@@ -17,6 +17,16 @@ class ViewController: UIViewController {
         print("Hola Asama")
     }
 
-
+    
+    @IBAction func goToNextScreen(_ sender: Any) {
+        print("hey")
+        performSegue(withIdentifier: "seg1", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC: SecondViewController = segue.destination as! SecondViewController
+        destVC.dataFromFirst = "ayyyyy whatsup my man"
+    }
+    
 }
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,95 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-s4-HbH">
+                                <rect key="frame" x="144" y="433" width="126" height="30"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="go To Next Screen">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToNextScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FxJ-8x-25z"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBO-D0-3Ym">
+                                <rect key="frame" x="174" y="362" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RFc-s4-HbH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Asg-y1-Kj6"/>
+                            <constraint firstItem="WBO-D0-3Ym" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eiu-E6-M4W"/>
+                            <constraint firstItem="RFc-s4-HbH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FIC-jU-wtU"/>
+                            <constraint firstItem="RFc-s4-HbH" firstAttribute="top" secondItem="WBO-D0-3Ym" secondAttribute="bottom" constant="50" id="Po0-Ti-xN7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="FBp-HY-98S" kind="presentation" identifier="seg1" id="jnq-0E-sUe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="100"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="7G8-Wf-ix6">
+            <objects>
+                <viewController id="FBp-HY-98S" customClass="SecondViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JfA-is-6is">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJH-8X-2de">
+                                <rect key="frame" x="136" y="391" width="142" height="60"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Go back">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToPreviousScreen:" destination="FBp-HY-98S" eventType="touchUpInside" id="DHG-ZR-ZN4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wI4-x3-4pM">
+                                <rect key="frame" x="173" y="330" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1k-IE-c09">
+                                <rect key="frame" x="186" y="269" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wI4-x3-4pM" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="6Yb-Aw-uNK"/>
+                            <constraint firstItem="BJH-8X-2de" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="DCo-PV-mRG"/>
+                            <constraint firstItem="wI4-x3-4pM" firstAttribute="top" secondItem="X1k-IE-c09" secondAttribute="bottom" constant="40" id="VZf-ST-ZfG"/>
+                            <constraint firstItem="BJH-8X-2de" firstAttribute="centerY" secondItem="JfA-is-6is" secondAttribute="centerY" id="YwP-ve-ZqD"/>
+                            <constraint firstItem="X1k-IE-c09" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="hwk-wL-Eal"/>
+                            <constraint firstItem="BJH-8X-2de" firstAttribute="top" secondItem="wI4-x3-4pM" secondAttribute="bottom" constant="40" id="qj9-yV-9Vg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1FM-Sx-QUa"/>
+                    </view>
+                    <connections>
+                        <outlet property="displayLabel" destination="X1k-IE-c09" id="1Hk-SG-JT4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lxp-lG-wCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="100"/>
         </scene>
     </scenes>
 </document>
