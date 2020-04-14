@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FCCDF0324454009006B0ACC /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF0224454009006B0ACC /* ThirdViewController.swift */; };
 		4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE922244503EC00B860A9 /* AppDelegate.swift */; };
 		4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE924244503EC00B860A9 /* SceneDelegate.swift */; };
 		4D7FE927244503EC00B860A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE926244503EC00B860A9 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FCCDF0224454009006B0ACC /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = SOURCE_ROOT; };
 		4D7FE91F244503EC00B860A9 /* FitnessAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FE922244503EC00B860A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D7FE924244503EC00B860A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				4D7FE92D244503F000B860A9 /* LaunchScreen.storyboard */,
 				4D7FE930244503F000B860A9 /* Info.plist */,
 				4D7FE936244508A900B860A9 /* SecondViewController.swift */,
+				0FCCDF0224454009006B0ACC /* ThirdViewController.swift */,
 			);
 			path = FitnessAppSwift;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				4D7FE937244508A900B860A9 /* SecondViewController.swift in Sources */,
 				4D7FE927244503EC00B860A9 /* ViewController.swift in Sources */,
+				0FCCDF0324454009006B0ACC /* ThirdViewController.swift in Sources */,
 				4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */,
 				4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */,
 			);

@@ -1,36 +1,29 @@
 //
-//  SecondViewController.swift
+//  ThirdViewController.swift
 //  FitnessAppSwift
 //
-//  Created by Asama Hayder on 13/04/2020.
+//  Created by Thaer Almalla on 14/04/2020.
 //  Copyright © 2020 Asama Hayder. All rights reserved.
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ThirdViewController: UIViewController {
 
-    var dataFromFirst: String = ""
-    
-    @IBOutlet weak var displayLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayLabel.text = dataFromFirst
 
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    @IBAction func goToPreviousScreen(_ sender: Any) {
-        print("Going back to previous screen")
+    @IBAction func goToHomeScreen(_ sender: Any) {
+        
+        performSegue(withIdentifier: "seg3", sender: self)
+    }
+    @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func goToThirdScreen(_ sender: Any) {
-        performSegue(withIdentifier: "seg2", sender: self)
-    }
     /*
     // MARK: - Navigation
 
