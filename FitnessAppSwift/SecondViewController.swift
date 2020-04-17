@@ -128,7 +128,7 @@ class SecondViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let thirdVC: ThirdViewController = segue.destination as! ThirdViewController
-        //thirdVC.setAnswerObject(object: answerObject!)
+        thirdVC.setAnswerObject(object: answerObject!)
     }
     
     
