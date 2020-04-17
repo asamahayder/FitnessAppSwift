@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,28 +16,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-s4-HbH">
-                                <rect key="frame" x="144" y="406" width="126" height="30"/>
+                                <rect key="frame" x="85.5" y="387" width="243" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="go To Next Screen">
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="bodybuilding">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToNextScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FxJ-8x-25z"/>
+                                    <action selector="chooseBodyBuilding:" destination="BYZ-38-t0r" eventType="touchUpInside" id="51f-8F-vzm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBO-D0-3Ym">
-                                <rect key="frame" x="174" y="335" width="66" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What training type do you want?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBO-D0-3Ym">
+                                <rect key="frame" x="67.5" y="313" width="279.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKY-2I-aOn">
+                                <rect key="frame" x="55" y="495" width="304" height="68"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Strength training">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseStrength:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mav-cg-QcT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="cKY-2I-aOn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1l4-wz-fG2"/>
                             <constraint firstItem="RFc-s4-HbH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Asg-y1-Kj6"/>
                             <constraint firstItem="WBO-D0-3Ym" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eiu-E6-M4W"/>
                             <constraint firstItem="RFc-s4-HbH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FIC-jU-wtU"/>
                             <constraint firstItem="RFc-s4-HbH" firstAttribute="top" secondItem="WBO-D0-3Ym" secondAttribute="bottom" constant="50" id="Po0-Ti-xN7"/>
+                            <constraint firstItem="cKY-2I-aOn" firstAttribute="top" secondItem="RFc-s4-HbH" secondAttribute="bottom" constant="40" id="jZB-Nz-Ynv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -57,56 +73,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJH-8X-2de">
-                                <rect key="frame" x="136" y="391" width="142" height="60"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What muscle groups do you want to train? (max 2)" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wI4-x3-4pM">
+                                <rect key="frame" x="50" y="239.5" width="314" height="107.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWE-Np-4yT">
+                                <rect key="frame" x="145.5" y="387" width="123" height="68"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Go back">
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Chest">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToPreviousScreen:" destination="FBp-HY-98S" eventType="touchUpInside" id="DHG-ZR-ZN4"/>
+                                    <action selector="chestChosen:" destination="FBp-HY-98S" eventType="touchUpInside" id="OBn-fY-Duf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wI4-x3-4pM">
-                                <rect key="frame" x="173" y="330" width="68" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1k-IE-c09">
-                                <rect key="frame" x="186" y="269" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIk-Tx-hh0">
-                                <rect key="frame" x="128.5" y="612" width="157" height="46"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="GoToThirdVC">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgm-qc-LDn">
+                                <rect key="frame" x="154" y="475" width="106" height="68"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToThirdScreen:" destination="FBp-HY-98S" eventType="touchUpInside" id="67v-II-Wpe"/>
+                                    <action selector="backChosen:" destination="FBp-HY-98S" eventType="touchUpInside" id="lYS-bs-vJA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5D-Tq-FBS">
+                                <rect key="frame" x="154.5" y="563" width="105" height="68"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="arms">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="armsChosen:" destination="FBp-HY-98S" eventType="touchUpInside" id="bFL-HH-zB1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMA-Bc-ALx">
+                                <rect key="frame" x="161.5" y="651" width="91" height="68"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="legs">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="legsChosen:" destination="FBp-HY-98S" eventType="touchUpInside" id="OXF-6f-vcw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dif-gM-fuu">
+                                <rect key="frame" x="153.5" y="739" width="107" height="68"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="done">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="done:" destination="FBp-HY-98S" eventType="touchUpInside" id="nPR-Mh-m6u"/>
+                                    <action selector="legsChosen:" destination="FBp-HY-98S" eventType="touchUpInside" id="aMP-br-RBH"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="eMA-Bc-ALx" firstAttribute="top" secondItem="D5D-Tq-FBS" secondAttribute="bottom" constant="20" id="1TC-1x-vTc"/>
+                            <constraint firstItem="tgm-qc-LDn" firstAttribute="top" secondItem="cWE-Np-4yT" secondAttribute="bottom" constant="20" id="1wy-Yi-io3"/>
+                            <constraint firstItem="cWE-Np-4yT" firstAttribute="centerY" secondItem="JfA-is-6is" secondAttribute="centerY" id="4mC-oq-Uxq"/>
                             <constraint firstItem="wI4-x3-4pM" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="6Yb-Aw-uNK"/>
-                            <constraint firstItem="pIk-Tx-hh0" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="B1b-HA-yEY"/>
-                            <constraint firstItem="BJH-8X-2de" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="DCo-PV-mRG"/>
-                            <constraint firstItem="wI4-x3-4pM" firstAttribute="top" secondItem="X1k-IE-c09" secondAttribute="bottom" constant="40" id="VZf-ST-ZfG"/>
-                            <constraint firstItem="BJH-8X-2de" firstAttribute="centerY" secondItem="JfA-is-6is" secondAttribute="centerY" id="YwP-ve-ZqD"/>
-                            <constraint firstItem="1FM-Sx-QUa" firstAttribute="bottom" secondItem="pIk-Tx-hh0" secondAttribute="bottom" constant="150" id="hNo-hs-BfE"/>
-                            <constraint firstItem="X1k-IE-c09" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="hwk-wL-Eal"/>
-                            <constraint firstItem="BJH-8X-2de" firstAttribute="top" secondItem="wI4-x3-4pM" secondAttribute="bottom" constant="40" id="qj9-yV-9Vg"/>
+                            <constraint firstItem="eMA-Bc-ALx" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="9wo-GM-3k8"/>
+                            <constraint firstItem="dif-gM-fuu" firstAttribute="top" secondItem="eMA-Bc-ALx" secondAttribute="bottom" constant="20" id="Kzt-vL-ly1"/>
+                            <constraint firstItem="dif-gM-fuu" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="M1e-ho-Xqw"/>
+                            <constraint firstItem="cWE-Np-4yT" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="MP9-6S-4DF"/>
+                            <constraint firstItem="D5D-Tq-FBS" firstAttribute="top" secondItem="tgm-qc-LDn" secondAttribute="bottom" constant="20" id="PjC-w5-8ao"/>
+                            <constraint firstItem="cWE-Np-4yT" firstAttribute="top" secondItem="wI4-x3-4pM" secondAttribute="bottom" constant="40" id="mIF-yu-RcI"/>
+                            <constraint firstItem="tgm-qc-LDn" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="nQY-sy-b8m"/>
+                            <constraint firstItem="D5D-Tq-FBS" firstAttribute="centerX" secondItem="JfA-is-6is" secondAttribute="centerX" id="nUC-sW-s3E"/>
+                            <constraint firstItem="wI4-x3-4pM" firstAttribute="leading" secondItem="JfA-is-6is" secondAttribute="leading" constant="50" id="uK0-Lx-eC4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1FM-Sx-QUa"/>
                     </view>
                     <connections>
-                        <outlet property="displayLabel" destination="X1k-IE-c09" id="1Hk-SG-JT4"/>
+                        <outlet property="armsButton" destination="D5D-Tq-FBS" id="g5b-6x-4LV"/>
+                        <outlet property="backButton" destination="tgm-qc-LDn" id="nAH-N0-s52"/>
+                        <outlet property="chestButton" destination="cWE-Np-4yT" id="Fhp-AG-4L7"/>
+                        <outlet property="doneButton" destination="dif-gM-fuu" id="uln-kF-Hvf"/>
+                        <outlet property="legsButton" destination="eMA-Bc-ALx" id="soS-lT-RqH"/>
                         <segue destination="sZq-Jh-1cx" kind="presentation" identifier="seg2" id="0xt-OZ-Liw"/>
                     </connections>
                 </viewController>
