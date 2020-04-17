@@ -9,24 +9,16 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
+    
+    var answerObject:Answers? = nil
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+         super.viewDidLoad()
 
          self.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 128/255, alpha: 1)
     }
     
-    @IBAction func goToHomeScreen(_ sender: Any) {
-        
-        performSegue(withIdentifier: "seg3", sender: self)
-    }
-    @IBAction func goBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
-    @IBAction func goToFourth(_ sender: Any) {
-        performSegue(withIdentifier: "seg4", sender: self)
-    }
     /*
     // MARK: - Navigation
 
