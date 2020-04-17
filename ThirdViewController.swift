@@ -18,6 +18,21 @@ class ThirdViewController: UIViewController {
          self.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 128/255, alpha: 1)
     }
     
+    @IBAction func Min30(_ sender: Any) {
+        
+        
+    }
+    
+    @IBAction func Min45(_ sender: Any) {
+        
+        
+    }
+    @IBAction func MIn60(_ sender: Any) {
+        
+        
+    }
+    
+    
     
     /*
     // MARK: - Navigation

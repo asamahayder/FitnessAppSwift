@@ -193,14 +193,23 @@ you want to train?
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6M-8C-LSg">
                                 <rect key="frame" x="183" y="438" width="48" height="30"/>
                                 <state key="normal" title="30 Min"/>
+                                <connections>
+                                    <action selector="Min30:" destination="sZq-Jh-1cx" eventType="touchUpInside" id="fG7-tE-ZWQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJg-4h-r2m">
                                 <rect key="frame" x="183" y="658" width="48" height="30"/>
                                 <state key="normal" title="60 Min"/>
+                                <connections>
+                                    <action selector="MIn60:" destination="sZq-Jh-1cx" eventType="touchUpInside" id="9Zx-NH-idD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3V-ut-cha">
                                 <rect key="frame" x="183" y="548" width="48" height="30"/>
                                 <state key="normal" title="45 Min"/>
+                                <connections>
+                                    <action selector="Min45:" destination="sZq-Jh-1cx" eventType="touchUpInside" id="RvJ-Aq-zJd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
