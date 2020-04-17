@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  FourthViewController.swift
 //  FitnessAppSwift
 //
 //  Created by Thaer Almalla on 14/04/2020.
@@ -8,25 +8,15 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class FourthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         self.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 128/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 100/255, green: 150/255, blue: 20/255, alpha: 1/255)
     }
     
-    @IBAction func goToHomeScreen(_ sender: Any) {
-        
-        performSegue(withIdentifier: "seg3", sender: self)
-    }
-    @IBAction func goBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func goToFourth(_ sender: Any) {
-        performSegue(withIdentifier: "seg4", sender: self)
-    }
+
     /*
     // MARK: - Navigation
 
@@ -37,4 +27,4 @@ class ThirdViewController: UIViewController {
     }
     */
 
-} 
+}
