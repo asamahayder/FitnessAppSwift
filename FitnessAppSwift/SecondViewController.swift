@@ -114,9 +114,21 @@ class SecondViewController: UIViewController {
     
     
     @IBAction func done(_ sender: Any) {
+        if answerObject != nil{
+            answerObject!.setMuscleGroups(listOfMuscleGroups: chosenMuscleGroups)
+            performSegue(withIdentifier: "seg2", sender: self)
+        }else{
+            print("Error: Did not receive an answerObject from the first screen!")
+        }
+        
         for item in chosenMuscleGroups{
             print(item)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let thirdVC: ThirdViewController = segue.destination as! ThirdViewController
+        //thirdVC.setAnswerObject(object: answerObject!)
     }
     
     
