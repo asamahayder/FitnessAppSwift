@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FCCDF0324454009006B0ACC /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF0224454009006B0ACC /* ThirdViewController.swift */; };
-		0FCCDF0F244C67E0006B0ACC /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF0E244C67E0006B0ACC /* FourthViewController.swift */; };
-		0FCCDF11244C6838006B0ACC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF10244C6838006B0ACC /* Database.swift */; };
-		0FCCDF13244C68B2006B0ACC /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF12244C68B2006B0ACC /* Exercise.swift */; };
-		0FCCDF1A244C8753006B0ACC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF19244C8753006B0ACC /* Database.swift */; };
-		0FCCDF1C244C877D006B0ACC /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF1B244C877D006B0ACC /* Exercise.swift */; };
 		4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE922244503EC00B860A9 /* AppDelegate.swift */; };
 		4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE924244503EC00B860A9 /* SceneDelegate.swift */; };
 		4D7FE927244503EC00B860A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE926244503EC00B860A9 /* ViewController.swift */; };
@@ -21,17 +15,14 @@
 		4D7FE92F244503F000B860A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D7FE92D244503F000B860A9 /* LaunchScreen.storyboard */; };
 		4D7FE937244508A900B860A9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE936244508A900B860A9 /* SecondViewController.swift */; };
 		4D7FE9392446481600B860A9 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE9382446481600B860A9 /* Answers.swift */; };
-		4D9268A4244C67E600B06856 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268A3244C67E600B06856 /* FourthViewController.swift */; };
 		4D9268A6244C792800B06856 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268A5244C792800B06856 /* FifthViewController.swift */; };
+		4D9268A8244C8C0E00B06856 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268A7244C8C0E00B06856 /* Exercise.swift */; };
+		4D9268AE244CB75D00B06856 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268A9244C8C4C00B06856 /* Database.swift */; };
+		4D9268B9244CBAA000B06856 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268B8244CBAA000B06856 /* FourthViewController.swift */; };
+		4D9268BC244CBB0400B06856 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268BB244CBB0400B06856 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0FCCDF0224454009006B0ACC /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = SOURCE_ROOT; };
-		0FCCDF0E244C67E0006B0ACC /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FourthViewController.swift; path = ../../MyFitnessApp/FourthViewController.swift; sourceTree = "<group>"; };
-		0FCCDF10244C6838006B0ACC /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Database.swift; path = ../../MyFitnessApp/Database.swift; sourceTree = "<group>"; };
-		0FCCDF12244C68B2006B0ACC /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = ../../MyFitnessApp/Exercise.swift; sourceTree = "<group>"; };
-		0FCCDF19244C8753006B0ACC /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		0FCCDF1B244C877D006B0ACC /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		4D7FE91F244503EC00B860A9 /* FitnessAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FE922244503EC00B860A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D7FE924244503EC00B860A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,8 +33,11 @@
 		4D7FE930244503F000B860A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7FE936244508A900B860A9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4D7FE9382446481600B860A9 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
-		4D9268A3244C67E600B06856 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		4D9268A5244C792800B06856 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
+		4D9268A7244C8C0E00B06856 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		4D9268A9244C8C4C00B06856 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		4D9268B8244CBAA000B06856 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		4D9268BB244CBB0400B06856 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +54,6 @@
 		0FCCDF18244C872A006B0ACC /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				0FCCDF0E244C67E0006B0ACC /* FourthViewController.swift */,
-				0FCCDF10244C6838006B0ACC /* Database.swift */,
-				0FCCDF12244C68B2006B0ACC /* Exercise.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -95,12 +86,12 @@
 				4D7FE92D244503F000B860A9 /* LaunchScreen.storyboard */,
 				4D7FE930244503F000B860A9 /* Info.plist */,
 				4D7FE936244508A900B860A9 /* SecondViewController.swift */,
-				0FCCDF0224454009006B0ACC /* ThirdViewController.swift */,
 				4D7FE9382446481600B860A9 /* Answers.swift */,
-				4D9268A3244C67E600B06856 /* FourthViewController.swift */,
 				4D9268A5244C792800B06856 /* FifthViewController.swift */,
-				0FCCDF19244C8753006B0ACC /* Database.swift */,
-				0FCCDF1B244C877D006B0ACC /* Exercise.swift */,
+				4D9268BB244CBB0400B06856 /* ThirdViewController.swift */,
+				4D9268A7244C8C0E00B06856 /* Exercise.swift */,
+				4D9268A9244C8C4C00B06856 /* Database.swift */,
+				4D9268B8244CBAA000B06856 /* FourthViewController.swift */,
 			);
 			path = FitnessAppSwift;
 			sourceTree = "<group>";
@@ -176,19 +167,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9268AE244CB75D00B06856 /* Database.swift in Sources */,
 				4D7FE937244508A900B860A9 /* SecondViewController.swift in Sources */,
+				4D9268BC244CBB0400B06856 /* ThirdViewController.swift in Sources */,
 				4D7FE9392446481600B860A9 /* Answers.swift in Sources */,
-				0FCCDF0F244C67E0006B0ACC /* FourthViewController.swift in Sources */,
 				4D7FE927244503EC00B860A9 /* ViewController.swift in Sources */,
-				4D9268A4244C67E600B06856 /* FourthViewController.swift in Sources */,
+				4D9268B9244CBAA000B06856 /* FourthViewController.swift in Sources */,
 				4D9268A6244C792800B06856 /* FifthViewController.swift in Sources */,
-				0FCCDF1A244C8753006B0ACC /* Database.swift in Sources */,
-				0FCCDF0324454009006B0ACC /* ThirdViewController.swift in Sources */,
+				4D9268A8244C8C0E00B06856 /* Exercise.swift in Sources */,
 				4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */,
-				0FCCDF1C244C877D006B0ACC /* Exercise.swift in Sources */,
-				0FCCDF11244C6838006B0ACC /* Database.swift in Sources */,
 				4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */,
-				0FCCDF13244C68B2006B0ACC /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +252,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = FitnessAppSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -318,6 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = FitnessAppSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

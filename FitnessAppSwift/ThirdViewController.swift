@@ -22,18 +22,18 @@ class ThirdViewController: UIViewController {
     @IBAction func Min30(_ sender: Any) {
         chosenTime = 30
         setAnswerObjectTime(time: chosenTime)
-        performSegue(withIdentifier: "seg3", sender: self)
+        
     }
     
     @IBAction func Min45(_ sender: Any) {
         chosenTime = 45
         setAnswerObjectTime(time: chosenTime)
-        performSegue(withIdentifier: "seg3", sender: self)
+        
     }
     @IBAction func MIn60(_ sender: Any) {
         chosenTime = 60
         setAnswerObjectTime(time: chosenTime)
-        performSegue(withIdentifier: "seg3", sender: self)
+    
     }
     
     func setAnswerObjectTime(time: Int) {
