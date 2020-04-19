@@ -33,6 +33,10 @@ class FifthViewController: UIViewController {
     func generateWorkout() {
         searchForBodyParts() //This filters the database by finding exercises that mach chosen bodyparts
         fillWorkout() //This goes through the result of searchForBodyParts() and keeps adding until desired time is reached.
+        
+        /*for exercise in workout{
+            print(exercise.exerciseName)
+        }*/
     }
     
     func searchForBodyParts() {
@@ -46,27 +50,17 @@ class FifthViewController: UIViewController {
     }
     
     func fillWorkout() {
-        var lowerBound:Int = 0
-        var higherBound:Int = searchQuery.count-1
+        let lowerBound:Int = 0
+        let higherBound:Int = searchQuery.count-1
         repeat{
             //randomized implementation
-            var intRandom = Int.random(in: lowerBound...higherBound)
-            if !(searchQuery[intRandom].isFlagged){
-                
-            }
-            
-            //Not a randomized implementation
-            for exercise in searchQuery{
-                workout.append(exercise)
-                currentTime += exercise.exerciseTime
+            let intRandom = Int.random(in: lowerBound...higherBound)
+            if searchQuery[intRandom].getIsFlagged() == false{
+                workout.append(searchQuery[intRandom])
+                currentTime += searchQuery[intRandom].exerciseTime
+                searchQuery[intRandom].setIsFlagged(bool: true)
             }
         }while (currentTime < (answarObject?.getMinutes())!)
     }
-    
-
-    
-    
-    
-    
     
 }

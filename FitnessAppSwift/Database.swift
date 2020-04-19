@@ -37,7 +37,7 @@ class Database {
         
         exerciseList.append(Exercise(exerciseName: "overhead cable extention", exerciseTime: 11, exercisePic: "no pic", exerciseDisc: "Stand with back towards the cable machine equipped with the rope. Bend slightly forwards and extend the elbow join above and behind the neck", exerciseBPart: "arms"))
         
-        exerciseList.append(Exercise(exerciseName: "JUJ", exerciseTime: 11, exercisePic: "no pic", exerciseDisc: "Stand with back towards the cable machine equipped with the rope. Bend slightly forwards and extend the elbow join above and behind the neck", exerciseBPart: "arms"))
+        exerciseList.append(Exercise(exerciseName: "tricep rope extention", exerciseTime: 11, exercisePic: "no pic", exerciseDisc: "Stand with back towards the cable machine equipped with the rope. Bend slightly forwards and extend the elbow join above and behind the neck", exerciseBPart: "arms"))
         
         exerciseList.append(Exercise(exerciseName: "Dumbbell Bench Press", exerciseTime: 10, exercisePic: "no pic", exerciseDisc: "Set up a bench at an incline of 30-45° and sit with your feet flat on the floor and your back on the bench. Lift the dumbbells to chest height with your palms facing forwards. Breathe out and push the dumbbells up until your arms are fully extended, using your pecs to power the movement. Don't let the dumbbells touch.", exerciseBPart: "chest"))
         
@@ -51,13 +51,13 @@ class Database {
         
         exerciseList.append(Exercise(exerciseName: "Deadlift", exerciseTime: 12, exercisePic: "no pic", exerciseDisc: "Stand with your mid-foot under the barbell. Bend over and grab the bar with a shoulder-width grip....", exerciseBPart: "back"))
         
-        exerciseList.append(Exercise(exerciseName: "Atlas Stone Trainer", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "sssss", exerciseBPart: "back"))
+        exerciseList.append(Exercise(exerciseName: "Atlas Stone Trainer", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "squat down and graå the stone with both hands, and use your legs and back to lift the stone up on the edge", exerciseBPart: "back"))
         
-        exerciseList.append(Exercise(exerciseName: "hello", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "okokok", exerciseBPart: "back"))
+        exerciseList.append(Exercise(exerciseName: "standing lounges", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "stand straight on both leg. Squat down by having on of the legs go forward while the other stays in place and bends in 90 degrees. remember to have a straight back.", exerciseBPart: "legs"))
         
-        exerciseList.append(Exercise(exerciseName: "OOO", exerciseTime: 12, exercisePic: "no pic", exerciseDisc: "Hej", exerciseBPart: "legs"))
+        exerciseList.append(Exercise(exerciseName: "walking lounges", exerciseTime: 12, exercisePic: "no pic", exerciseDisc: "Stand straight on both legs. Squat down by having one of the legs go forward. the other leg stays in place and bends in 90 degrees. The you stand up, by pulling the leg behind up and thereby taking a step forward.", exerciseBPart: "legs"))
         
-        exerciseList.append(Exercise(exerciseName: "MMM", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "Asama", exerciseBPart: "chest"))
+        exerciseList.append(Exercise(exerciseName: "cable press", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "sit down with back against the pads and pull the two cables together with slightly bend arms. focus on having the chest muscles doing the work.", exerciseBPart: "chest"))
         
         }
    

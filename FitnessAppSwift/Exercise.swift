@@ -14,6 +14,7 @@ class Exercise {
     var exercisePic: String = ""
     var exerciseDisc: String = ""
     var exerciseBPart: String = ""
+    var isFlagged: Bool = false
     
     init(exerciseName: String, exerciseTime: Int, exercisePic: String, exerciseDisc: String, exerciseBPart: String) {
         self.exerciseName = exerciseName
@@ -21,6 +22,14 @@ class Exercise {
         self.exercisePic = exercisePic
         self.exerciseDisc = exerciseDisc
         self.exerciseBPart = exerciseBPart
+    }
+    
+    func getIsFlagged() -> Bool {
+        return isFlagged
+    }
+    
+    func setIsFlagged(bool: Bool) {
+        isFlagged = bool
     }
     
 }
