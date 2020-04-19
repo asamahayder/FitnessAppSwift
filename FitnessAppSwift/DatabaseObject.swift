@@ -1,14 +1,13 @@
 //
-//  Database.swift
+//  DatabaseObject.swift
 //  FitnessAppSwift
 //
-//  Created by Thaer Almalla on 19/04/2020.
+//  Created by Asama Hayder on 19/04/2020.
 //  Copyright © 2020 Asama Hayder. All rights reserved.
 //
 
 import Foundation
-class Database {
-    
+class DatabaseObject{
     var exerciseList = [Exercise]()
     
     init() {
@@ -39,5 +38,8 @@ class Database {
         
         
         }
-   
+    
+    func getExerciseList() -> [Exercise] {
+        return exerciseList
+    }
 }

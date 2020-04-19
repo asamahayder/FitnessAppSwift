@@ -20,6 +20,7 @@
 		4D9268AE244CB75D00B06856 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268A9244C8C4C00B06856 /* Database.swift */; };
 		4D9268B9244CBAA000B06856 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268B8244CBAA000B06856 /* FourthViewController.swift */; };
 		4D9268BC244CBB0400B06856 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268BB244CBB0400B06856 /* ThirdViewController.swift */; };
+		4D9268BE244CDC9300B06856 /* DatabaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9268BD244CDC9300B06856 /* DatabaseObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4D9268A9244C8C4C00B06856 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		4D9268B8244CBAA000B06856 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		4D9268BB244CBB0400B06856 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		4D9268BD244CDC9300B06856 /* DatabaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				4D9268A7244C8C0E00B06856 /* Exercise.swift */,
 				4D9268A9244C8C4C00B06856 /* Database.swift */,
 				4D9268B8244CBAA000B06856 /* FourthViewController.swift */,
+				4D9268BD244CDC9300B06856 /* DatabaseObject.swift */,
 			);
 			path = FitnessAppSwift;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				4D9268AE244CB75D00B06856 /* Database.swift in Sources */,
 				4D7FE937244508A900B860A9 /* SecondViewController.swift in Sources */,
+				4D9268BE244CDC9300B06856 /* DatabaseObject.swift in Sources */,
 				4D9268BC244CBB0400B06856 /* ThirdViewController.swift in Sources */,
 				4D7FE9392446481600B860A9 /* Answers.swift in Sources */,
 				4D7FE927244503EC00B860A9 /* ViewController.swift in Sources */,
