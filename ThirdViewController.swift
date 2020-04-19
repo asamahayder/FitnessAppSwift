@@ -11,6 +11,7 @@ import UIKit
 class ThirdViewController: UIViewController {
     
     var answerObject:Answers? = nil
+    
 
     override func viewDidLoad() {
          super.viewDidLoad()
