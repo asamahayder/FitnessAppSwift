@@ -35,8 +35,8 @@ class SecondViewController: UIViewController {
     }
     
     func removeFromMuscleGroups (group: String){
-        for i in 0..<chosenMuscleGroups.count{
-            if chosenMuscleGroups[i] == group {
+        for (i, currentGroup) in chosenMuscleGroups.enumerated(){
+            if currentGroup == group{
                 chosenMuscleGroups.remove(at: i)
             }
         }
@@ -45,8 +45,12 @@ class SecondViewController: UIViewController {
     @IBAction func chestChosen(_ sender: Any) {
         if chestAlreadyChosen{
             removeFromMuscleGroups(group: "chest")
+            chestButton.backgroundColor = UIColor.orange
+            chosenGroupsCount -= 1
+            chestAlreadyChosen = false
+            return
         }
-        if chosenGroupsCount >= 2 || chestAlreadyChosen {
+        if chosenGroupsCount >= 2 {
             return
         }
         chosenMuscleGroups.append("chest")
@@ -57,7 +61,14 @@ class SecondViewController: UIViewController {
     
     
     @IBAction func backChosen(_ sender: Any) {
-        if chosenGroupsCount >= 2 || backAlreadyChosen {
+        if backAlreadyChosen{
+            removeFromMuscleGroups(group: "back")
+            backButton.backgroundColor = UIColor.orange
+            chosenGroupsCount -= 1
+            backAlreadyChosen = false
+            return
+        }
+        if chosenGroupsCount >= 2 {
             return
         }
         chosenMuscleGroups.append("back")
@@ -68,7 +79,14 @@ class SecondViewController: UIViewController {
     
     
     @IBAction func armsChosen(_ sender: Any) {
-        if chosenGroupsCount >= 2 || armsAlreadyChosen{
+        if armsAlreadyChosen{
+            removeFromMuscleGroups(group: "arms")
+            armsButton.backgroundColor = UIColor.orange
+            chosenGroupsCount -= 1
+            armsAlreadyChosen = false
+            return
+        }
+        if chosenGroupsCount >= 2{
             return
         }
         chosenMuscleGroups.append("arms")
@@ -78,7 +96,14 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func legsChosen(_ sender: Any) {
-        if chosenGroupsCount >= 2 || legsAlreadyChosen{
+        if legsAlreadyChosen{
+            removeFromMuscleGroups(group: "legs")
+            legsButton.backgroundColor = UIColor.orange
+            chosenGroupsCount -= 1
+            legsAlreadyChosen = false
+            return
+        }
+        if chosenGroupsCount >= 2{
             return
         }
         chosenMuscleGroups.append("legs")
@@ -89,9 +114,21 @@ class SecondViewController: UIViewController {
     
     
     @IBAction func done(_ sender: Any) {
+        if answerObject != nil{
+            answerObject!.setMuscleGroups(listOfMuscleGroups: chosenMuscleGroups)
+            performSegue(withIdentifier: "seg2", sender: self)
+        }else{
+            print("Error: Did not receive an answerObject from the first screen!")
+        }
+        
         for item in chosenMuscleGroups{
             print(item)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let thirdVC: ThirdViewController = segue.destination as! ThirdViewController
+        thirdVC.setAnswerObject(object: answerObject!)
     }
     
     

@@ -181,9 +181,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CA-d5-Trs">
-                                <rect key="frame" x="117" y="223" width="181" height="48"/>
+                                <rect key="frame" x="117" y="223" width="167" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">For how long time do
+                                <string key="text">How long time do
 you want to train?
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -191,21 +191,27 @@ you want to train?
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6M-8C-LSg">
-                                <rect key="frame" x="183" y="438" width="48" height="30"/>
+                                <rect key="frame" x="146.5" y="348" width="121" height="60"/>
+                                <color key="backgroundColor" red="0.94094864069999995" green="1" blue="0.12971079520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="30 Min"/>
                                 <connections>
                                     <action selector="Min30:" destination="sZq-Jh-1cx" eventType="touchUpInside" id="fG7-tE-ZWQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJg-4h-r2m">
-                                <rect key="frame" x="183" y="658" width="48" height="30"/>
+                                <rect key="frame" x="146" y="628" width="122" height="60"/>
+                                <color key="backgroundColor" red="0.94094864069999995" green="1" blue="0.12971079520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="60 Min"/>
                                 <connections>
                                     <action selector="MIn60:" destination="sZq-Jh-1cx" eventType="touchUpInside" id="9Zx-NH-idD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3V-ut-cha">
-                                <rect key="frame" x="183" y="548" width="48" height="30"/>
+                                <rect key="frame" x="146.5" y="488" width="121" height="60"/>
+                                <color key="backgroundColor" red="0.94094864069999995" green="1" blue="0.12971079520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="45 Min"/>
                                 <connections>
                                     <action selector="Min45:" destination="sZq-Jh-1cx" eventType="touchUpInside" id="RvJ-Aq-zJd"/>
