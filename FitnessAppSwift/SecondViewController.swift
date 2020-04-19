@@ -21,6 +21,7 @@ class SecondViewController: UIViewController {
     var chosenMuscleGroups: [String] = []
     var answerObject:Answers? = nil
     
+    
     var chestAlreadyChosen = false
     var backAlreadyChosen = false
     var armsAlreadyChosen = false
