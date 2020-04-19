@@ -328,28 +328,27 @@ you want to train?
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogs-0L-ROp">
-                                <rect key="frame" x="193" y="410.5" width="28" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NQN-I5-OoD">
+                                <rect key="frame" x="0.0" y="20" width="414" height="788"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ogs-0L-ROp" firstAttribute="centerX" secondItem="gVR-9V-Pm9" secondAttribute="centerX" id="jsC-3u-3vV"/>
-                            <constraint firstItem="Ogs-0L-ROp" firstAttribute="centerY" secondItem="gVR-9V-Pm9" secondAttribute="centerY" id="nWN-P6-35P"/>
+                            <constraint firstItem="NQN-I5-OoD" firstAttribute="leading" secondItem="zoc-7q-YR8" secondAttribute="leading" id="QXX-ko-vY3"/>
+                            <constraint firstItem="NQN-I5-OoD" firstAttribute="trailing" secondItem="zoc-7q-YR8" secondAttribute="trailing" id="Yyo-du-hky"/>
+                            <constraint firstItem="zoc-7q-YR8" firstAttribute="bottom" secondItem="NQN-I5-OoD" secondAttribute="bottom" id="bH3-7o-J0t"/>
+                            <constraint firstItem="NQN-I5-OoD" firstAttribute="top" secondItem="gVR-9V-Pm9" secondAttribute="top" constant="20" symbolic="YES" id="n81-7b-4YZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zoc-7q-YR8"/>
                     </view>
                     <navigationItem key="navigationItem" id="6ih-zc-ean"/>
                     <connections>
-                        <outlet property="lable" destination="Ogs-0L-ROp" id="I0l-aN-QRC"/>
+                        <outlet property="stackView" destination="NQN-I5-OoD" id="JTV-9V-7vB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxc-Ga-fpC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3314" y="100"/>
+            <point key="canvasLocation" x="3313.04347826087" y="99.776785714285708"/>
         </scene>
     </scenes>
 </document>

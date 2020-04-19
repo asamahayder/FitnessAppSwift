@@ -10,6 +10,7 @@ import UIKit
 
 class FifthViewController: UIViewController {
     
+    @IBOutlet weak var stackView: UIStackView!
     var answarObject: Answers? = nil
     var database = DatabaseObject()
     lazy var exerciseList = database.getExerciseList()
@@ -18,12 +19,10 @@ class FifthViewController: UIViewController {
     
     var workout: [Exercise] = [Exercise]()
     
-    @IBOutlet weak var lable: UILabel!
-    var message: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        lable.text = message
+        generateWorkout()
+        addToStackView()
     }
     
     func setAnswerObject(object: Answers) {
@@ -33,10 +32,6 @@ class FifthViewController: UIViewController {
     func generateWorkout() {
         searchForBodyParts() //This filters the database by finding exercises that mach chosen bodyparts
         fillWorkout() //This goes through the result of searchForBodyParts() and keeps adding until desired time is reached.
-        
-        /*for exercise in workout{
-            print(exercise.exerciseName)
-        }*/
     }
     
     func searchForBodyParts() {
@@ -61,6 +56,18 @@ class FifthViewController: UIViewController {
                 searchQuery[intRandom].setIsFlagged(bool: true)
             }
         }while (currentTime < (answarObject?.getMinutes())!)
+    }
+    
+    func addToStackView()  {
+        for exercise in workout{
+            let label = UILabel()
+            label.text = exercise.exerciseName
+            label.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            label.textAlignment = .center
+            stackView.addArrangedSubview(label)
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+        }
     }
     
 }
