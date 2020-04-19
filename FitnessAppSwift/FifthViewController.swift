@@ -11,6 +11,7 @@ import UIKit
 class FifthViewController: UIViewController {
     
     var answarObject: Answers? = nil
+    let database: Database = Database()
     
     @IBOutlet weak var lable: UILabel!
     var message: String = ""
