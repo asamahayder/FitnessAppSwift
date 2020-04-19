@@ -37,6 +37,27 @@ class Database {
         
         exerciseList.append(Exercise(exerciseName: "overhead cable extention", exerciseTime: 11, exercisePic: "no pic", exerciseDisc: "Stand with back towards the cable machine equipped with the rope. Bend slightly forwards and extend the elbow join above and behind the neck", exerciseBPart: "arms"))
         
+        exerciseList.append(Exercise(exerciseName: "JUJ", exerciseTime: 11, exercisePic: "no pic", exerciseDisc: "Stand with back towards the cable machine equipped with the rope. Bend slightly forwards and extend the elbow join above and behind the neck", exerciseBPart: "arms"))
+        
+        exerciseList.append(Exercise(exerciseName: "Dumbbell Bench Press", exerciseTime: 10, exercisePic: "no pic", exerciseDisc: "Set up a bench at an incline of 30-45° and sit with your feet flat on the floor and your back on the bench. Lift the dumbbells to chest height with your palms facing forwards. Breathe out and push the dumbbells up until your arms are fully extended, using your pecs to power the movement. Don't let the dumbbells touch.", exerciseBPart: "chest"))
+        
+        exerciseList.append(Exercise(exerciseName: "Dumbbell Flyes", exerciseTime: 10, exercisePic: "no pic", exerciseDisc: "Lie flat on your back on a flat incline bench. Lift arms up above the head so they’re extended but not locked out.Inhale and slowly lower dumbbells in an arc motion until they’re in line with the chest. Your arms will be extended to the sides but not locked out. Don’t drop your arms lower than your shoulders.", exerciseBPart: "chest"))
+        
+        exerciseList.append(Exercise(exerciseName: "Wide-Grip Barbell Bench Press", exerciseTime: 12, exercisePic: "no pic", exerciseDisc: "Lie back on a flat bench holding a barbell with an overhand grip, hands set wider than your shoulders. From the starting position, breathe in and lower the bar slowly. Push the bar back to the starting position explosively as you breathe out. Focus on pushing the bar using your chest muscles.", exerciseBPart: "chest"))
+        
+        exerciseList.append(Exercise(exerciseName: "Incline Dumbbell Press Reverse-Grip", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "lllllll", exerciseBPart: "chest"))
+        
+        exerciseList.append(Exercise(exerciseName: "Incline Dumbbell Press Reverse-Grip", exerciseTime: 10, exercisePic: "no pic", exerciseDisc: "With the dumbbells at shoulder height, rotate your palms so that they face forward", exerciseBPart: "arms"))
+        
+        exerciseList.append(Exercise(exerciseName: "Deadlift", exerciseTime: 12, exercisePic: "no pic", exerciseDisc: "Stand with your mid-foot under the barbell. Bend over and grab the bar with a shoulder-width grip....", exerciseBPart: "back"))
+        
+        exerciseList.append(Exercise(exerciseName: "Atlas Stone Trainer", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "sssss", exerciseBPart: "back"))
+        
+        exerciseList.append(Exercise(exerciseName: "hello", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "okokok", exerciseBPart: "back"))
+        
+        exerciseList.append(Exercise(exerciseName: "OOO", exerciseTime: 12, exercisePic: "no pic", exerciseDisc: "Hej", exerciseBPart: "legs"))
+        
+        exerciseList.append(Exercise(exerciseName: "MMM", exerciseTime: 9, exercisePic: "no pic", exerciseDisc: "Asama", exerciseBPart: "chest"))
         
         }
    
