@@ -11,6 +11,8 @@
 		0FCCDF0F244C67E0006B0ACC /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF0E244C67E0006B0ACC /* FourthViewController.swift */; };
 		0FCCDF11244C6838006B0ACC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF10244C6838006B0ACC /* Database.swift */; };
 		0FCCDF13244C68B2006B0ACC /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF12244C68B2006B0ACC /* Exercise.swift */; };
+		0FCCDF1A244C8753006B0ACC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF19244C8753006B0ACC /* Database.swift */; };
+		0FCCDF1C244C877D006B0ACC /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCCDF1B244C877D006B0ACC /* Exercise.swift */; };
 		4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE922244503EC00B860A9 /* AppDelegate.swift */; };
 		4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE924244503EC00B860A9 /* SceneDelegate.swift */; };
 		4D7FE927244503EC00B860A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE926244503EC00B860A9 /* ViewController.swift */; };
@@ -28,6 +30,8 @@
 		0FCCDF0E244C67E0006B0ACC /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FourthViewController.swift; path = ../../MyFitnessApp/FourthViewController.swift; sourceTree = "<group>"; };
 		0FCCDF10244C6838006B0ACC /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Database.swift; path = ../../MyFitnessApp/Database.swift; sourceTree = "<group>"; };
 		0FCCDF12244C68B2006B0ACC /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = ../../MyFitnessApp/Exercise.swift; sourceTree = "<group>"; };
+		0FCCDF19244C8753006B0ACC /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		0FCCDF1B244C877D006B0ACC /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		4D7FE91F244503EC00B860A9 /* FitnessAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FE922244503EC00B860A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D7FE924244503EC00B860A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,11 +57,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FCCDF18244C872A006B0ACC /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0FCCDF0E244C67E0006B0ACC /* FourthViewController.swift */,
+				0FCCDF10244C6838006B0ACC /* Database.swift */,
+				0FCCDF12244C68B2006B0ACC /* Exercise.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		4D7FE916244503EC00B860A9 = {
 			isa = PBXGroup;
 			children = (
 				4D7FE921244503EC00B860A9 /* FitnessAppSwift */,
 				4D7FE920244503EC00B860A9 /* Products */,
+				0FCCDF18244C872A006B0ACC /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +99,8 @@
 				4D7FE9382446481600B860A9 /* Answers.swift */,
 				4D9268A3244C67E600B06856 /* FourthViewController.swift */,
 				4D9268A5244C792800B06856 /* FifthViewController.swift */,
+				0FCCDF19244C8753006B0ACC /* Database.swift */,
+				0FCCDF1B244C877D006B0ACC /* Exercise.swift */,
 			);
 			path = FitnessAppSwift;
 			sourceTree = "<group>";
@@ -165,8 +182,10 @@
 				4D7FE927244503EC00B860A9 /* ViewController.swift in Sources */,
 				4D9268A4244C67E600B06856 /* FourthViewController.swift in Sources */,
 				4D9268A6244C792800B06856 /* FifthViewController.swift in Sources */,
+				0FCCDF1A244C8753006B0ACC /* Database.swift in Sources */,
 				0FCCDF0324454009006B0ACC /* ThirdViewController.swift in Sources */,
 				4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */,
+				0FCCDF1C244C877D006B0ACC /* Exercise.swift in Sources */,
 				0FCCDF11244C6838006B0ACC /* Database.swift in Sources */,
 				4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */,
 				0FCCDF13244C68B2006B0ACC /* Exercise.swift in Sources */,
