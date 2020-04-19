@@ -10,35 +10,49 @@ import UIKit
 
 class ThirdViewController: UIViewController {
     
-    func setAnswerObject(object: Answers){
-        answerObject = object
-    }
-    
-    
     var answerObject:Answers? = nil
+    var chosenTime: Int = 0
     
 
     override func viewDidLoad() {
          super.viewDidLoad()
 
-         self.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 128/255, alpha: 1)
     }
     
-       
-    
     @IBAction func Min30(_ sender: Any) {
-        
-        
+        chosenTime = 30
+        setAnswerObjectTime(time: chosenTime)
+        performSegue(withIdentifier: "seg3", sender: self)
     }
     
     @IBAction func Min45(_ sender: Any) {
-        
-        
+        chosenTime = 45
+        setAnswerObjectTime(time: chosenTime)
+        performSegue(withIdentifier: "seg3", sender: self)
     }
     @IBAction func MIn60(_ sender: Any) {
-        
-        
+        chosenTime = 60
+        setAnswerObjectTime(time: chosenTime)
+        performSegue(withIdentifier: "seg3", sender: self)
     }
-   
     
-}
+    func setAnswerObjectTime(time: Int) {
+        if answerObject != nil{
+            answerObject!.setMinutes(minutes: time)
+            performSegue(withIdentifier: "seg3", sender: self)
+        }else{
+            print("Error: Did not receive an answerObject from the secondViewController")
+        }
+        print("Chosen time is: \(time)")
+    }
+    
+    func setAnswerObject(object: Answers){
+        answerObject = object
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let fourthVC: FourthViewController = segue.destination as! FourthViewController
+        fourthVC.setAnswerObject(object: answerObject!)
+    }
+
+} 
