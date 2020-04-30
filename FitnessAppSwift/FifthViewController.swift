@@ -26,11 +26,42 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
         table.separatorColor = UIColor.green
         return table
     }()
+    let startWorkoutButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = UIColor.green
+        button.layer.cornerRadius = 10
+        button.setTitle("Start Workout", for: .normal)
+        button.addTarget(self, action: #selector(startWorkoutButtonPressed), for: .touchUpInside)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 40)
+        button.contentEdgeInsets = UIEdgeInsets(top: 30,left: 30,bottom: 30,right: 30)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.shadowOffset = CGSize(width: 0, height: 1)
+        button.layer.shadowColor = UIColor.lightGray.cgColor
+        button.layer.shadowOpacity = 1
+        button.layer.shadowRadius = 5
+        button.layer.masksToBounds = false
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         generateWorkout()
         createTable()
+        setupButton()
+    }
+    
+    func setupButton(){
+        self.view.addSubview(startWorkoutButton)
+        NSLayoutConstraint.activate([
+            startWorkoutButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30),
+            startWorkoutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
+        
+    }
+    
+    @objc func startWorkoutButtonPressed(sender: UIButton!){
+        //start workout
+        print("going to start workout now any minute xD")
     }
     
     func setAnswerObject(object: Answers) {
