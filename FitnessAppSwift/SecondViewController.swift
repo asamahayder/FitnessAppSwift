@@ -29,6 +29,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Muscle Groups"
     }
     
     func setAnswerObject(object:Answers) {

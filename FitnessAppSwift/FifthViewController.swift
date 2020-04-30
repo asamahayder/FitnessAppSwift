@@ -45,6 +45,7 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Exercises"
         generateWorkout()
         createTable()
         setupButton()
@@ -62,6 +63,12 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func startWorkoutButtonPressed(sender: UIButton!){
         //start workout
         print("going to start workout now any minute xD")
+        //let storyBoard = UIStoryboard(name: "Workout", bundle: nil)
+        //let viewController = storyBoard.instantiateViewController(identifier: "WorkoutViewController") as UIViewController
+        //present(viewController, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Workout", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "WorkoutViewController")
+        self.present(vc, animated: true)
     }
     
     func setAnswerObject(object: Answers) {

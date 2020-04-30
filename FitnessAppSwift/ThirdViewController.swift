@@ -16,7 +16,7 @@ class ThirdViewController: UIViewController {
 
     override func viewDidLoad() {
          super.viewDidLoad()
-
+         title = "Time"
     }
     
     @IBAction func Min30(_ sender: Any) {

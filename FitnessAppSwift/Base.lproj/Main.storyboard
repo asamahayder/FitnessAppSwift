@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="69Q-72-3WF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Type-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Type" id="BYZ-38-t0r" customClass="ViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,30 +57,33 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Workout Type" id="Bel-Au-fO1">
+                        <barButtonItem key="backBarButtonItem" title="Workout Type" id="6l9-US-JCS"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="FBp-HY-98S" kind="show" identifier="seg1" id="jnq-0E-sUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="100"/>
+            <point key="canvasLocation" x="1095.6521739130435" y="99.776785714285708"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Muscle Groups-->
         <scene sceneID="7G8-Wf-ix6">
             <objects>
-                <viewController id="FBp-HY-98S" customClass="SecondViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Muscle Groups" id="FBp-HY-98S" customClass="SecondViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JfA-is-6is">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What muscle groups do you want to train? (max 2)" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wI4-x3-4pM">
-                                <rect key="frame" x="50" y="239.5" width="314" height="107.5"/>
+                                <rect key="frame" x="50" y="266.5" width="314" height="107.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWE-Np-4yT">
-                                <rect key="frame" x="145.5" y="387" width="123" height="68"/>
+                                <rect key="frame" x="145.5" y="414" width="123" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -92,7 +95,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgm-qc-LDn">
-                                <rect key="frame" x="154" y="475" width="106" height="68"/>
+                                <rect key="frame" x="154" y="502" width="106" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -104,7 +107,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5D-Tq-FBS">
-                                <rect key="frame" x="154.5" y="563" width="105" height="68"/>
+                                <rect key="frame" x="154.5" y="590" width="105" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -116,7 +119,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMA-Bc-ALx">
-                                <rect key="frame" x="161.5" y="651" width="91" height="68"/>
+                                <rect key="frame" x="161.5" y="678" width="91" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -128,7 +131,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dif-gM-fuu">
-                                <rect key="frame" x="153.5" y="739" width="107" height="68"/>
+                                <rect key="frame" x="153.5" y="766" width="107" height="68"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -159,7 +162,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1FM-Sx-QUa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GHK-8w-XHw"/>
+                    <navigationItem key="navigationItem" title="Muscle Groups" id="GHK-8w-XHw">
+                        <barButtonItem key="backBarButtonItem" title="Muscle Groups" id="Xho-ZX-CoU"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="armsButton" destination="D5D-Tq-FBS" id="g5b-6x-4LV"/>
                         <outlet property="backButton" destination="tgm-qc-LDn" id="nAH-N0-s52"/>
@@ -171,18 +176,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxp-lG-wCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="100"/>
+            <point key="canvasLocation" x="1889.8550724637682" y="99.776785714285708"/>
         </scene>
-        <!--Third View Controller-->
+        <!--Time-->
         <scene sceneID="9OI-fR-1l4">
             <objects>
-                <viewController id="sZq-Jh-1cx" customClass="ThirdViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Time" id="sZq-Jh-1cx" customClass="ThirdViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nrX-eG-1do">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CA-d5-Trs">
-                                <rect key="frame" x="83.5" y="222" width="247" height="72"/>
+                                <rect key="frame" x="83.5" y="276" width="247" height="72"/>
                                 <string key="text">How long time do
 you want to train?
 </string>
@@ -191,7 +196,7 @@ you want to train?
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6M-8C-LSg">
-                                <rect key="frame" x="136.5" y="324" width="141" height="68"/>
+                                <rect key="frame" x="136.5" y="378" width="141" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -203,7 +208,7 @@ you want to train?
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJg-4h-r2m">
-                                <rect key="frame" x="136" y="620" width="142" height="68"/>
+                                <rect key="frame" x="136" y="674" width="142" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -215,7 +220,7 @@ you want to train?
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3V-ut-cha">
-                                <rect key="frame" x="136.5" y="472" width="141" height="68"/>
+                                <rect key="frame" x="136.5" y="526" width="141" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -240,37 +245,39 @@ you want to train?
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IBK-VS-BXf"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OJr-fr-oH7"/>
+                    <navigationItem key="navigationItem" title="Time" id="OJr-fr-oH7">
+                        <barButtonItem key="backBarButtonItem" title="Time" id="scl-RJ-S83"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="7oo-Ab-iKq" kind="show" identifier="seg3" id="8T2-fX-hIo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uq4-ON-Hc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="100"/>
+            <point key="canvasLocation" x="2671.0144927536235" y="99.776785714285708"/>
         </scene>
-        <!--fourth View Controller-->
+        <!--Overview-->
         <scene sceneID="Itf-gj-OGv">
             <objects>
-                <viewController title="fourth View Controller" id="7oo-Ab-iKq" customClass="FourthViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Overview" id="7oo-Ab-iKq" customClass="FourthViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ne-Kc-DWo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="type: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81y-vi-m1J">
-                                <rect key="frame" x="171.5" y="403" width="71.5" height="36"/>
+                                <rect key="frame" x="171.5" y="430" width="71.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="parts: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urn-Yx-WUc">
-                                <rect key="frame" x="179.5" y="469" width="55" height="24"/>
+                                <rect key="frame" x="179.5" y="496" width="55" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGK-ZO-LJd">
-                                <rect key="frame" x="167.5" y="523" width="79" height="36"/>
+                                <rect key="frame" x="167.5" y="550" width="79" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -290,7 +297,7 @@ you want to train?
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chosen workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpS-mf-hw3">
-                                <rect key="frame" x="84.5" y="311" width="245" height="42"/>
+                                <rect key="frame" x="84.5" y="338" width="245" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -309,7 +316,9 @@ you want to train?
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Ht-X9-N79"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zcw-t4-sQk"/>
+                    <navigationItem key="navigationItem" title="Overview" id="zcw-t4-sQk">
+                        <barButtonItem key="backBarButtonItem" title="Overview" id="Rmx-gm-W6z"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="partsText" destination="urn-Yx-WUc" id="MmA-yG-rUw"/>
                         <outlet property="timeText" destination="IGK-ZO-LJd" id="6oy-wD-Vxt"/>
@@ -318,23 +327,50 @@ you want to train?
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSG-8o-6td" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2549" y="100"/>
+            <point key="canvasLocation" x="3457.971014492754" y="99.776785714285708"/>
         </scene>
-        <!--Fifth View Controller-->
+        <!--Exercise List-->
         <scene sceneID="xyo-QQ-HU3">
             <objects>
-                <viewController title="Fifth View Controller" id="Dcn-S4-PUi" customClass="FifthViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Exercise List" id="Dcn-S4-PUi" customClass="FifthViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gVR-9V-Pm9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zoc-7q-YR8"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6ih-zc-ean"/>
+                    <navigationItem key="navigationItem" title="Exercises" id="6ih-zc-ean"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxc-Ga-fpC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3313.04347826087" y="99.776785714285708"/>
+            <point key="canvasLocation" x="4223.188405797102" y="99.776785714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zYw-XF-ZGg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="69Q-72-3WF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fHm-ue-wSe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="65u-uZ-jeH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahe-Hg-tH1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="185.50724637681162" y="99.776785714285708"/>
         </scene>
     </scenes>
 </document>

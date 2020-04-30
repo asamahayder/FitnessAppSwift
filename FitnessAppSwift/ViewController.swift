@@ -14,6 +14,7 @@ var answerObject = Answers()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Workout Type"
         // Do any additional setup after loading the view.
         print("first comit")
         print("Hola Asama")
