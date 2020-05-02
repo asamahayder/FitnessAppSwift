@@ -11,6 +11,8 @@
 
 import UIKit
 
+
+
 class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var answarObject: Answers? = nil
@@ -62,13 +64,12 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @objc func startWorkoutButtonPressed(sender: UIButton!){
         //start workout
-        print("going to start workout now any minute xD")
-        //let storyBoard = UIStoryboard(name: "Workout", bundle: nil)
-        //let viewController = storyBoard.instantiateViewController(identifier: "WorkoutViewController") as UIViewController
-        //present(viewController, animated: true, completion: nil)
-        let storyboard = UIStoryboard(name: "WorkoutStoryBoard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "WorkoutViewController")
-        self.present(vc, animated: true)
+        
+        self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
+        //This is a part of a Notification-Observer pattern that makes it possible to send data from one screen to the other.
+        let key = Notification.Name(rawValue: startWorkoutKey)
+        NotificationCenter.default.post(name: key, object: nil)
+        
     }
     
     func setAnswerObject(object: Answers) {

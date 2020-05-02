@@ -8,16 +8,39 @@
 
 import UIKit
 
+let startWorkoutKey = "startWorkoutNow"
+
 class ViewController: UIViewController {
     
-var answerObject = Answers()
-
+    
+    @IBOutlet weak var buttonStrengthTraining: UIButton!
+    @IBOutlet weak var buttonBodyBuilding: UIButton!
+    var answerObject = Answers()
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.goToWorkoutScreen(_: )), name: .workoutNotification, object: nil)
+    }
+    
+    @objc func goToWorkoutScreen(_ notification: NSNotification) {
+        performSegue(withIdentifier: "startWorkout", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        createObservers()
         title = "Workout Type"
-        // Do any additional setup after loading the view.
-        print("first comit")
-        print("Hola Asama")
+        
+        //rounded buttons
+        buttonBodyBuilding.layer.cornerRadius = 10
+        buttonStrengthTraining.layer.cornerRadius = 10
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // We can reset stuff in here
     }
     
     @IBAction func goToNextScreen(_ sender: Any) {
@@ -38,9 +61,17 @@ var answerObject = Answers()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "seg1"{
+            return
+        }
         let secondVC: SecondViewController = segue.destination as! SecondViewController
         secondVC.setAnswerObject(object: answerObject)
     }
+    
+}
+
+extension Notification.Name{
+    static let workoutNotification = Notification.Name(rawValue: startWorkoutKey)
     
 }
 

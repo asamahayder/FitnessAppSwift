@@ -30,6 +30,13 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Muscle Groups"
+        
+        //rounded buttons
+        chestButton.layer.cornerRadius = 10
+        backButton.layer.cornerRadius = 10
+        legsButton.layer.cornerRadius = 10
+        armsButton.layer.cornerRadius = 10
+        doneButton.layer.cornerRadius = 10
     }
     
     func setAnswerObject(object:Answers) {

@@ -10,7 +10,7 @@
         <!--Type-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Type" id="BYZ-38-t0r" customClass="ViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Type" id="BYZ-38-t0r" customClass="ViewController" customModule="FitnessAppSwift" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,12 +61,44 @@
                         <barButtonItem key="backBarButtonItem" title="Workout Type" id="6l9-US-JCS"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonBodyBuilding" destination="RFc-s4-HbH" id="wc7-9E-six"/>
+                        <outlet property="buttonStrengthTraining" destination="cKY-2I-aOn" id="dWh-6a-uqE"/>
                         <segue destination="FBp-HY-98S" kind="show" identifier="seg1" id="jnq-0E-sUe"/>
+                        <segue destination="iHf-8d-3dq" kind="show" identifier="startWorkout" id="INk-MZ-htN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1095.6521739130435" y="99.776785714285708"/>
+        </scene>
+        <!--Workout-->
+        <scene sceneID="rWE-xL-yf2">
+            <objects>
+                <viewController id="iHf-8d-3dq" customClass="TestViewController" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xQ3-H2-6vY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-aT-Trl">
+                                <rect key="frame" x="177.5" y="433" width="59" height="30"/>
+                                <state key="normal" title="Click me"/>
+                                <connections>
+                                    <action selector="goBackToRoot:" destination="iHf-8d-3dq" eventType="touchUpInside" id="Njf-0g-6iX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zgp-aT-Trl" firstAttribute="centerX" secondItem="xQ3-H2-6vY" secondAttribute="centerX" id="7sv-gs-YdE"/>
+                            <constraint firstItem="zgp-aT-Trl" firstAttribute="centerY" secondItem="xQ3-H2-6vY" secondAttribute="centerY" id="byp-rE-flc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hHJ-OA-dHV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Workout" id="KR2-R0-70b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uKk-dJ-TBs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1096" y="794"/>
         </scene>
         <!--Muscle Groups-->
         <scene sceneID="7G8-Wf-ix6">
@@ -249,6 +281,9 @@ you want to train?
                         <barButtonItem key="backBarButtonItem" title="Time" id="scl-RJ-S83"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="button30Min" destination="r6M-8C-LSg" id="0tr-xD-I3l"/>
+                        <outlet property="button45Min" destination="RJg-4h-r2m" id="HiJ-0v-GM3"/>
+                        <outlet property="button60Min" destination="g3V-ut-cha" id="ovM-OD-cn0"/>
                         <segue destination="7oo-Ab-iKq" kind="show" identifier="seg3" id="8T2-fX-hIo"/>
                     </connections>
                 </viewController>
@@ -320,6 +355,7 @@ you want to train?
                         <barButtonItem key="backBarButtonItem" title="Overview" id="Rmx-gm-W6z"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonGenerateWorkout" destination="2Xn-3r-rXu" id="htl-93-k9I"/>
                         <outlet property="partsText" destination="urn-Yx-WUc" id="MmA-yG-rUw"/>
                         <outlet property="timeText" destination="IGK-ZO-LJd" id="6oy-wD-Vxt"/>
                         <outlet property="typeText" destination="81y-vi-m1J" id="IQ7-Jc-COw"/>

@@ -14,6 +14,7 @@ class FourthViewController: UIViewController {
     @IBOutlet weak var typeText: UILabel!
     @IBOutlet weak var partsText: UILabel!
     @IBOutlet weak var timeText: UILabel!
+    @IBOutlet weak var buttonGenerateWorkout: UIButton!
     
     var answerObject: Answers? = nil
     
@@ -22,7 +23,8 @@ class FourthViewController: UIViewController {
         title = "Overview"
         fillLabels()
 
-        // Do any additional setup after loading the view.
+        //Rounded buttons
+        buttonGenerateWorkout.layer.cornerRadius = 10
     }
     
     func setAnswerObject(object: Answers){

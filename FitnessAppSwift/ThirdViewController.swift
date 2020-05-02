@@ -13,10 +13,18 @@ class ThirdViewController: UIViewController {
     var answerObject:Answers? = nil
     var chosenTime: Int = 0
     
-
+    @IBOutlet weak var button30Min: UIButton!
+    @IBOutlet weak var button45Min: UIButton!
+    @IBOutlet weak var button60Min: UIButton!
+    
     override func viewDidLoad() {
          super.viewDidLoad()
          title = "Time"
+        
+        //Rounded buttons
+        button30Min.layer.cornerRadius = 10
+        button45Min.layer.cornerRadius = 10
+        button60Min.layer.cornerRadius = 10
     }
     
     @IBAction func Min30(_ sender: Any) {
