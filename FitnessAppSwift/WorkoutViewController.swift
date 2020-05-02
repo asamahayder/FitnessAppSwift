@@ -15,7 +15,12 @@ class WorkoutViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
+    
+    
+    @IBAction func goToNextScreen(_ sender: Any) {
+        performSegue(withIdentifier: "goToNextScreen", sender: self)
+    }
+    
     
 
 }

@@ -66,7 +66,7 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //let storyBoard = UIStoryboard(name: "Workout", bundle: nil)
         //let viewController = storyBoard.instantiateViewController(identifier: "WorkoutViewController") as UIViewController
         //present(viewController, animated: true, completion: nil)
-        let storyboard = UIStoryboard(name: "Workout", bundle: nil)
+        let storyboard = UIStoryboard(name: "WorkoutStoryBoard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "WorkoutViewController")
         self.present(vc, animated: true)
     }
