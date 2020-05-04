@@ -13,7 +13,7 @@ import UIKit
 
 
 
-class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var answarObject: Answers? = nil
     var database = DatabaseObject()
@@ -30,7 +30,7 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }()
     let startWorkoutButton: UIButton = {
        let button = UIButton()
-        button.backgroundColor = UIColor.green
+        button.backgroundColor = UIColor.systemBlue
         button.layer.cornerRadius = 10
         button.setTitle("Start Workout", for: .normal)
         button.addTarget(self, action: #selector(startWorkoutButtonPressed), for: .touchUpInside)
@@ -68,7 +68,13 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
         //This is a part of a Notification-Observer pattern that makes it possible to send data from one screen to the other.
         let key = Notification.Name(rawValue: startWorkoutKey)
-        NotificationCenter.default.post(name: key, object: nil)
+        
+        //here we prepare the data to send with the notification
+        let workoutType = answarObject?.workoutType
+        let data : [String: Any] = ["workout" : workout, "workoutType" : workoutType!]
+        
+        //here we are posting (sending) the notification to all observer with the same key
+        NotificationCenter.default.post(name: key, object: nil, userInfo: data)
         
     }
     
@@ -168,11 +174,11 @@ class FifthViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.exerciseTime.text = String(workout[indexPath.row].exerciseTime)
         cell.exerciseTime.text! += " min"
         
-        var numberOfReps = 0
+        var numberOfReps = "0"
         if answarObject?.workoutType == "bodybuilding" {
-            numberOfReps = 8
+            numberOfReps = "8-12"
         }else{
-            numberOfReps = 6
+            numberOfReps = "4-6"
         }
         cell.exerciseReps.text = String(numberOfReps)
         cell.exerciseReps.text! += " reps"

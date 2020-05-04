@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class GenerateWorkout_TimeVC: UIViewController {
     
     var answerObject:Answers? = nil
     var chosenTime: Int = 0
@@ -59,7 +59,7 @@ class ThirdViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let fourthVC: FourthViewController = segue.destination as! FourthViewController
+        let fourthVC: GenerateWorkout_OverviewVC = segue.destination as! GenerateWorkout_OverviewVC
         fourthVC.setAnswerObject(object: answerObject!)
     }
 

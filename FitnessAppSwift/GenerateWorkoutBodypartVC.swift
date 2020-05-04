@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class GenerateWorkoutBodypartVC: UIViewController {
     
     
     @IBOutlet weak var chestButton: UIButton!
@@ -136,7 +136,7 @@ class SecondViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let thirdVC: ThirdViewController = segue.destination as! ThirdViewController
+        let thirdVC: GenerateWorkout_TimeVC = segue.destination as! GenerateWorkout_TimeVC
         thirdVC.setAnswerObject(object: answerObject!)
     }
     

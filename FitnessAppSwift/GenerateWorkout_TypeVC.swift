@@ -10,8 +10,10 @@ import UIKit
 
 let startWorkoutKey = "startWorkoutNow"
 
-class ViewController: UIViewController {
+class GenerateWorkout_TypeVC: UIViewController {
     
+    var workout : [Exercise] = []
+    var workoutType : String = " "
     
     @IBOutlet weak var buttonStrengthTraining: UIButton!
     @IBOutlet weak var buttonBodyBuilding: UIButton!
@@ -22,10 +24,17 @@ class ViewController: UIViewController {
     }
     
     func createObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.goToWorkoutScreen(_: )), name: .workoutNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GenerateWorkout_TypeVC.goToWorkoutScreen(_: )), name: .workoutNotification, object: nil)
     }
     
     @objc func goToWorkoutScreen(_ notification: NSNotification) {
+        
+        if let data = notification.userInfo as? [String : Any]{
+            workout = data["workout"]! as! [Exercise]
+            workoutType = data["workoutType"]! as! String
+        }
+        
+        
         performSegue(withIdentifier: "startWorkout", sender: self)
     }
     
@@ -61,11 +70,13 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "seg1"{
-            return
+        if segue.identifier == "seg1"{
+            let secondVC: GenerateWorkoutBodypartVC = segue.destination as! GenerateWorkoutBodypartVC
+            secondVC.setAnswerObject(object: answerObject)
+        }else if segue.identifier == "startWorkout"{
+            let workoutVC: WorkoutVC = segue.destination as! WorkoutVC
+            workoutVC.setParams(workout: workout, type: workoutType)
         }
-        let secondVC: SecondViewController = segue.destination as! SecondViewController
-        secondVC.setAnswerObject(object: answerObject)
     }
     
 }

@@ -11,15 +11,15 @@ class Exercise {
     
     var exerciseName: String = ""
     var exerciseTime: Int = 0
-    var exercisePic: String = ""
+    var exerciseVidID: String = ""
     var exerciseDisc: String = ""
     var exerciseBPart: String = ""
     var isFlagged: Bool = false
     
-    init(exerciseName: String, exerciseTime: Int, exercisePic: String, exerciseDisc: String, exerciseBPart: String) {
+    init(exerciseName: String, exerciseTime: Int, exerciseVidID: String, exerciseDisc: String, exerciseBPart: String) {
         self.exerciseName = exerciseName
         self.exerciseTime = exerciseTime
-        self.exercisePic = exercisePic
+        self.exerciseVidID = exerciseVidID
         self.exerciseDisc = exerciseDisc
         self.exerciseBPart = exerciseBPart
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FourthViewController: UIViewController {
+class GenerateWorkout_OverviewVC: UIViewController {
     
     
     @IBOutlet weak var typeText: UILabel!
@@ -51,7 +51,7 @@ class FourthViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let fifthVC: FifthViewController = segue.destination as! FifthViewController
+        let fifthVC: GenerateWorkout_ExercisesVC = segue.destination as! GenerateWorkout_ExercisesVC
         fifthVC.setAnswerObject(object: answerObject!)
     }
     
