@@ -16,7 +16,7 @@ import UIKit
 class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var answarObject: Answers? = nil
-    var database = DatabaseObject()
+    var database = DataBase()
     lazy var exerciseList = database.getExerciseList()
     var searchQuery:[Exercise] = [Exercise]()
     var workout: [Exercise] = [Exercise]()
