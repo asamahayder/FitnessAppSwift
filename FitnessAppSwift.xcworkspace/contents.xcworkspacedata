@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/thaeralmalla/Documents/FitnessAppSwift-2/FitnessAppSwift/HomeScreen.swift">
+   </FileRef>
+   <FileRef
       location = "group:FitnessAppSwift.xcodeproj">
    </FileRef>
    <FileRef

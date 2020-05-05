@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F5658FE2460FCB400F309E2 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5658FD2460FCB400F309E2 /* HomeScreen.swift */; };
+		0F5659002461063C00F309E2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5658FF2461063C00F309E2 /* Profile.swift */; };
 		4D4A42BA245D8C4E00141420 /* WorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A42B9245D8C4E00141420 /* WorkoutVC.swift */; };
 		4D5E06F02460B2E6007538DD /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E06EF2460B2E6007538DD /* DataBase.swift */; };
 		4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE922244503EC00B860A9 /* AppDelegate.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F5658FD2460FCB400F309E2 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeScreen.swift; path = "/Users/thaeralmalla/Documents/FitnessAppSwift-2/FitnessAppSwift/HomeScreen.swift"; sourceTree = "<absolute>"; };
+		0F5658FF2461063C00F309E2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		4D4A42B9245D8C4E00141420 /* WorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVC.swift; sourceTree = "<group>"; };
 		4D5E06EF2460B2E6007538DD /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		4D7FE91F244503EC00B860A9 /* FitnessAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +106,7 @@
 				4D5E06EF2460B2E6007538DD /* DataBase.swift */,
 				4D9268A7244C8C0E00B06856 /* Exercise.swift */,
 				4D9268A5244C792800B06856 /* GenerateWorkout_ExercisesVC.swift */,
+				0F5658FD2460FCB400F309E2 /* HomeScreen.swift */,
 				4D9268B8244CBAA000B06856 /* GenerateWorkout_OverviewVC.swift */,
 				4D9268BB244CBB0400B06856 /* GenerateWorkout_TimeVC.swift */,
 				4D7FE926244503EC00B860A9 /* GenerateWorkout_TypeVC.swift */,
@@ -109,6 +114,7 @@
 				4D7FE930244503F000B860A9 /* Info.plist */,
 				4D7FE92D244503F000B860A9 /* LaunchScreen.storyboard */,
 				4D7FE928244503EC00B860A9 /* Main.storyboard */,
+				0F5658FF2461063C00F309E2 /* Profile.swift */,
 				4D7FE924244503EC00B860A9 /* SceneDelegate.swift */,
 				4D4A42B9245D8C4E00141420 /* WorkoutVC.swift */,
 			);
@@ -241,11 +247,13 @@
 				4D7FE937244508A900B860A9 /* GenerateWorkoutBodypartVC.swift in Sources */,
 				4D9268BC244CBB0400B06856 /* GenerateWorkout_TimeVC.swift in Sources */,
 				4D4A42BA245D8C4E00141420 /* WorkoutVC.swift in Sources */,
+				0F5659002461063C00F309E2 /* Profile.swift in Sources */,
 				4D7FE9392446481600B860A9 /* Answers.swift in Sources */,
 				4D7FE927244503EC00B860A9 /* GenerateWorkout_TypeVC.swift in Sources */,
 				4D9268B9244CBAA000B06856 /* GenerateWorkout_OverviewVC.swift in Sources */,
 				4D5E06F02460B2E6007538DD /* DataBase.swift in Sources */,
 				4D9268A6244C792800B06856 /* GenerateWorkout_ExercisesVC.swift in Sources */,
+				0F5658FE2460FCB400F309E2 /* HomeScreen.swift in Sources */,
 				4D9268A8244C8C0E00B06856 /* Exercise.swift in Sources */,
 				4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */,
 				4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */,
