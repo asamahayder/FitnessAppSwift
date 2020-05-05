@@ -11,8 +11,6 @@
 
 import UIKit
 
-
-
 class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var answarObject: Answers? = nil
