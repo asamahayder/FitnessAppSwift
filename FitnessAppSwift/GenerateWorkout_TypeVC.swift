@@ -8,39 +8,25 @@
 
 import UIKit
 
-let startWorkoutKey = "startWorkoutNow"
+
 
 class GenerateWorkout_TypeVC: UIViewController {
     
-    var workout : [Exercise] = []
-    var workoutType : String = " "
+    
     
     @IBOutlet weak var buttonStrengthTraining: UIButton!
     @IBOutlet weak var buttonBodyBuilding: UIButton!
     var answerObject = Answers()
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
     
-    func createObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(GenerateWorkout_TypeVC.goToWorkoutScreen(_: )), name: .workoutNotification, object: nil)
-    }
     
-    @objc func goToWorkoutScreen(_ notification: NSNotification) {
-        
-        if let data = notification.userInfo as? [String : Any]{
-            workout = data["workout"]! as! [Exercise]
-            workoutType = data["workoutType"]! as! String
-        }
-        
-        
-        performSegue(withIdentifier: "startWorkout", sender: self)
-    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createObservers()
+        
         title = "Workout Type"
         
         //rounded buttons
@@ -73,16 +59,13 @@ class GenerateWorkout_TypeVC: UIViewController {
         if segue.identifier == "seg1"{
             let secondVC: GenerateWorkoutBodypartVC = segue.destination as! GenerateWorkoutBodypartVC
             secondVC.setAnswerObject(object: answerObject)
-        }else if segue.identifier == "startWorkout"{
-            let workoutVC: WorkoutVC = segue.destination as! WorkoutVC
-            workoutVC.setParams(workout: workout, type: workoutType)
         }
     }
     
-}
-
-extension Notification.Name{
-    static let workoutNotification = Notification.Name(rawValue: startWorkoutKey)
+    
+    
     
 }
+
+
 
