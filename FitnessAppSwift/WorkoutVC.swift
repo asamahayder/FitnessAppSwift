@@ -97,6 +97,18 @@ class WorkoutVC: UIViewController {
         //Check for new Achievements
         //All of this happens on a new screen that is shown modally. A user can then press continue to return.
         print("Finish the workout")
+        
+        let alert = UIAlertController(title: "Continue?", message: "Do you want to finish the workout?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+        print("No was chosen")
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+        print("Yes was chosen")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -104,7 +116,7 @@ class WorkoutVC: UIViewController {
         if currentExercise != workout.count-1 {
             currentExercise += 1
             loadExercise(exercise: workout[currentExercise])
-        }else if currentExercise == workout.count{
+        }else if currentExercise == workout.count-1{
             finishWorkout()
         }
     }
