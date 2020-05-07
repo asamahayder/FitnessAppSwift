@@ -12,7 +12,12 @@ let startWorkoutKey = "startWorkoutNow"
 class HomeScreen: UIViewController {
     
     var workout : [Exercise] = []
-    var workoutType : String = " "
+    var workoutType: String = ""
+    var workoutTime: Int = 0
+    var workoutBodyParts: [String] = []
+    
+    
+    
     
     
     @IBOutlet weak var buttonGenerateWorkout: UIButton!
@@ -43,6 +48,9 @@ class HomeScreen: UIViewController {
         if let data = notification.userInfo as? [String : Any]{
             workout = data["workout"]! as! [Exercise]
             workoutType = data["workoutType"]! as! String
+            workoutTime = data["workoutTime"]! as! Int
+            workoutBodyParts = data["workoutBodyParts"]! as! [String]
+            
         }
         
         performSegue(withIdentifier: "startWorkout", sender: self)
@@ -51,13 +59,18 @@ class HomeScreen: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startWorkout"{
             let workoutVC: WorkoutVC = segue.destination as! WorkoutVC
-            workoutVC.setParams(workout: workout, type: workoutType)
+            workoutVC.setParams(workout: workout, workoutType: workoutType, workoutTime: workoutTime, workoutBodyParts: workoutBodyParts)
         }
     }
     
     @IBAction func goToGenerateWorkout(_ sender: Any) {
         performSegue(withIdentifier: "generateWorkout", sender: self)
     }
+    
+    @IBAction func onCustomWorkoutClicked(_ sender: Any) {
+        performSegue(withIdentifier: "goToCustomWorkout", sender: self)
+    }
+    
     
 
 }

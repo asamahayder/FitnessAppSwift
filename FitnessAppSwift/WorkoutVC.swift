@@ -10,9 +10,11 @@ import UIKit
 import YoutubePlayer_in_WKWebView
 
 class WorkoutVC: UIViewController {
-    
+
     var workout:[Exercise] = []
-    var workoutType = " "
+    var workoutType: String = ""
+    var workoutTime: Int = 0
+    var workoutBodyParts: [String] = []
     var workoutSets = " "
     var workoutReps = " "
     var currentExercise = 0
@@ -55,11 +57,13 @@ class WorkoutVC: UIViewController {
     
     func loadExercise(exercise: Exercise) {
         if currentExercise == 0 {
-            buttonBack.tintColor = UIColor.lightGray
-            buttonBack.backgroundColor = UIColor.darkGray
+            buttonBack.tintColor = UIColor.white
+            buttonBack.backgroundColor = UIColor.red
+            buttonBack.setTitle("Exit", for: .normal)
         }else{
             buttonBack.tintColor = UIColor.white
             buttonBack.backgroundColor = UIColor.systemBlue
+            buttonBack.setTitle("Back", for: .normal)
         }
         
         if currentExercise == workout.count-1 {
@@ -81,9 +85,11 @@ class WorkoutVC: UIViewController {
     }
     
     
-    func setParams(workout: [Exercise], type: String) {
+    func setParams(workout: [Exercise], workoutType: String, workoutTime: Int, workoutBodyParts: [String]) {
         self.workout = workout
-        self.workoutType = type
+        self.workoutType = workoutType
+        self.workoutTime = workoutTime
+        self.workoutBodyParts = workoutBodyParts
     }
     
     func finishWorkout()  {
@@ -97,15 +103,37 @@ class WorkoutVC: UIViewController {
         //Check for new Achievements
         //All of this happens on a new screen that is shown modally. A user can then press continue to return.
         print("Finish the workout")
-        
+        //var finish = true
         let alert = UIAlertController(title: "Continue?", message: "Do you want to finish the workout?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
         print("No was chosen")
+            //finish = false
         }))
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
         print("Yes was chosen")
+            //finish = true
+            self.performSegue(withIdentifier: "goToFinishWorkout", sender: self)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        //if finish {
+          //  performSegue(withIdentifier: "goToFinishWorkout", sender: self)
+        //}
+    }
+    
+    func exitWorkout() {
+        //exit here
+        let alert = UIAlertController(title: "Exit?", message: "Do you want to exit the workout? The workout won't be saved or receive points", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+        return
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+        self.navigationController?.popToRootViewController(animated: true)
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -125,10 +153,26 @@ class WorkoutVC: UIViewController {
         if currentExercise != 0 {
             currentExercise -= 1
             loadExercise(exercise: workout[currentExercise])
+        }else{
+            exitWorkout()
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(false, animated:true)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFinishWorkout"{
+            let secondVC: WorkoutFinishedVC = segue.destination as! WorkoutFinishedVC
+            secondVC.setParams(workout: workout, workoutType: workoutType, workoutTime: workoutTime, workoutBodyParts: workoutBodyParts)
+        }
+    }
     
 }
+
+

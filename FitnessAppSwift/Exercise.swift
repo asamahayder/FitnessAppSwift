@@ -7,13 +7,14 @@
 //
 
 import Foundation
-class Exercise {
+class Exercise : Codable, Comparable{
     
     var exerciseName: String = ""
     var exerciseTime: Int = 0
     var exerciseVidID: String = ""
     var exerciseDisc: String = ""
     var exerciseBPart: String = ""
+    var exerciseBPartCode: Int = 0
     var isFlagged: Bool = false
     
     init(exerciseName: String, exerciseTime: Int, exerciseVidID: String, exerciseDisc: String, exerciseBPart: String) {
@@ -22,6 +23,25 @@ class Exercise {
         self.exerciseVidID = exerciseVidID
         self.exerciseDisc = exerciseDisc
         self.exerciseBPart = exerciseBPart
+        settingBPartCode()
+    }
+    
+    func settingBPartCode(){
+        switch exerciseBPart{
+        case "chest": exerciseBPartCode = 0
+        case "legs": exerciseBPartCode = 1
+        case "arms": exerciseBPartCode = 2
+        case "back": exerciseBPartCode = 3
+        default: exerciseBPartCode = 100
+        }
+    }
+    
+    static func <(exercise1: Exercise, exercise2: Exercise) -> Bool {
+        return exercise1.exerciseBPartCode < exercise2.exerciseBPartCode
+    }
+    
+    static func ==(exercise1: Exercise, exercise2: Exercise) -> Bool {
+        return exercise1.exerciseBPartCode == exercise2.exerciseBPartCode
     }
     
     func getIsFlagged() -> Bool {

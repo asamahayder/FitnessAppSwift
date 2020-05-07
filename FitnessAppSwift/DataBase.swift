@@ -40,7 +40,7 @@ class DataBase{
     
     exerciseList.append(Exercise(exerciseName: "Dumbbell Bench Press", exerciseTime: 10, exerciseVidID: "Y_7aHqXeCfQ", exerciseDisc: "Set up a bench at an incline of 30-45° and sit with your back on the bench. Lift the dumbbells to chest height with your palms facing forwards. Push the dumbbells up until your arms are fully extended, using your pecs to power the movement.", exerciseBPart: "chest"))
     
-    exerciseList.append(Exercise(exerciseName: "Dumbbell Flyes", exerciseTime: 10, exerciseVidID: "eozdVDA78K0", exerciseDisc: "Lie on a flat incline bench. Lift arms up above the head so they’re extended but not locked out. Slowly lower dumbbells in an arc motion until they’re in line with the chest. Don’t drop your arms lower than your shoulders.", exerciseBPart: "chest"))
+    exerciseList.append(Exercise(exerciseName: "Dumbbell Flyes", exerciseTime: 10, exerciseVidID: "eozdVDA78K0", exerciseDisc: "Lie on a flat incline bench. Lift arms up above the head so they’re extended but not locked out. Slowly lower dumbbells in an arc motion until they’re in line with the chest.", exerciseBPart: "chest"))
     
     exerciseList.append(Exercise(exerciseName: "Barbell Bench Press", exerciseTime: 12, exerciseVidID: "gRVjAtPip0Y", exerciseDisc: "Lie back on a flat bench holding a barbell with an overhand grip, hands set wider than your shoulders. From the starting position, lower the bar slowly. Push the bar back to the starting position explosively as you breathe out. Focus on pushing the bar using your chest muscles.", exerciseBPart: "chest"))
     

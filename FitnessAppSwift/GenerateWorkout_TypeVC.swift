@@ -65,6 +65,8 @@ class GenerateWorkout_TypeVC: UIViewController {
     
     
     
+    
+    
 }
 
 

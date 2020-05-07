@@ -1,24 +1,28 @@
 //
-//  FifthViewController.swift
+//  CustomWorkoutVC.swift
 //  FitnessAppSwift
 //
-//  Created by Asama Hayder on 19/04/2020.
+//  Created by Asama Hayder on 07/05/2020.
 //  Copyright © 2020 Asama Hayder. All rights reserved.
 //
 
-//some of the code regarding the tableView was inspired by the tutorial from:
-//https://blog.usejournal.com/easy-tableview-setup-tutorial-swift-4-ad48ec4cbd45
-
 import UIKit
 
-class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var answerObject: Answers? = nil
+class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     var database = DataBase()
     lazy var exerciseList = database.getExerciseList()
-    var searchQuery:[Exercise] = [Exercise]()
-    var workout: [Exercise] = [Exercise]()
-    var currentTime: Int = 0
+    lazy var sortedExerciseList: [Exercise] = []
+    var selectedExercises: [Exercise] = []
+    var currentTotalTime = 0
+    var currentTotalNumberOfExercises = 0
+    var workoutType: String = ""
+    
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var totalExercisesLabel: UILabel!
+    @IBOutlet weak var totalMinutesLabel: UILabel!
+    @IBOutlet weak var startWorkoutButton: UIButton!
+    
     let tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = UIColor.white
@@ -26,98 +30,59 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
         table.separatorColor = UIColor.green
         return table
     }()
-    let startWorkoutButton: UIButton = {
-       let button = UIButton()
-        button.backgroundColor = UIColor.systemBlue
-        button.layer.cornerRadius = 10
-        button.setTitle("Start Workout", for: .normal)
-        button.addTarget(self, action: #selector(startWorkoutButtonPressed), for: .touchUpInside)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 40)
-        button.contentEdgeInsets = UIEdgeInsets(top: 30,left: 30,bottom: 30,right: 30)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.shadowOffset = CGSize(width: 0, height: 1)
-        button.layer.shadowColor = UIColor.lightGray.cgColor
-        button.layer.shadowOpacity = 1
-        button.layer.shadowRadius = 5
-        button.layer.masksToBounds = false
-        return button
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Exercises"
-        generateWorkout()
+        //Styling button
+        startWorkoutButton.layer.cornerRadius = 10
+        startWorkoutButton.layer.borderColor = UIColor.white.cgColor
+        startWorkoutButton.layer.borderWidth = 5
+        
+        //styling infoView
+        infoView.layer.cornerRadius = 10
+        
+        
+        sortedExerciseList = exerciseList.sorted()
         createTable()
-        setupButton()
+        // Do any additional setup after loading the view.
     }
     
-    func setupButton(){
-        self.view.addSubview(startWorkoutButton)
-        NSLayoutConstraint.activate([
-            startWorkoutButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30),
-            startWorkoutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
+    @IBAction func onStartWorkoutClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose workout type", message: "This wil affect the number of reps", preferredStyle: .alert)
         
-    }
-    
-    @objc func startWorkoutButtonPressed(sender: UIButton!){
-        //start workout
+        alert.addAction(UIAlertAction(title: "Bodybuilding", style: .default, handler: { _ in
+        print("Bodybuilding was chosen")
+            self.workoutType = "bodybuilding"
+        }))
         
-        self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
+        alert.addAction(UIAlertAction(title: "Strength", style: .default, handler: { _ in
+        print("Strength was chosen")
+            self.workoutType = "strength"
+        }))
+        
+        /*self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
         //This is a part of a Notification-Observer pattern that makes it possible to send data from one screen to the other.
         let key = Notification.Name(rawValue: startWorkoutKey)
         
         //here we prepare the data to send with the notification
-        let data : [String: Any] = ["workout" : workout, "workoutType" : answerObject!.getWorkoutType(), "workoutTime" : answerObject!.getMinutes(), "workoutBodyParts" : answerObject!.getMuscleGroups()]
+        let data : [String: Any] = ["workout" : selectedExercises, "workoutType" : answerObject!.getWorkoutType(), "workoutTime" : answerObject!.getMinutes(), "workoutBodyParts" : answerObject!.getMuscleGroups()]
         
         //here we are posting (sending) the notification to all observer with the same key
         NotificationCenter.default.post(name: key, object: nil, userInfo: data)
         
+        self.present(alert, animated: true, completion: nil)*/
     }
     
-    func setAnswerObject(object: Answers) {
-        answerObject = object
-    }
     
-    func generateWorkout() {
-        searchForBodyParts() //This filters the database by finding exercises that mach chosen bodyparts
-        fillWorkout() //This goes through the result of searchForBodyParts() and keeps adding until desired time is reached.
-    }
     
-    func searchForBodyParts() {
-        for exercise in exerciseList{
-            for bodyPart in (answerObject?.getMuscleGroups())!{
-                if exercise.exerciseBPart == bodyPart {
-                    searchQuery.append(exercise)
-                }
-            }
-        }
-    }
-    
-    func fillWorkout() {
-        let lowerBound:Int = 0
-        let higherBound:Int = searchQuery.count-1
-        repeat{
-            //randomized implementation
-            let intRandom = Int.random(in: lowerBound...higherBound)
-            if searchQuery[intRandom].getIsFlagged() == false{
-                workout.append(searchQuery[intRandom])
-                currentTime += searchQuery[intRandom].exerciseTime
-                searchQuery[intRandom].setIsFlagged(bool: true)
-            }
-        }while (currentTime < (answerObject?.getMinutes())!)
-    }
-    
-    func addToStackView()  {
-        
-        //Stack View
-        let stackView   = UIStackView()
-        stackView.axis  = NSLayoutConstraint.Axis.vertical
-        stackView.distribution  = UIStackView.Distribution.equalSpacing
+    func addToStackView(){
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.vertical
+        stackView.distribution = UIStackView.Distribution.equalSpacing
         stackView.alignment = UIStackView.Alignment.center
         stackView.spacing   = 16.0
-
-        for exercise in workout{
+        
+        for exercise in sortedExerciseList{
             
             //Text Label
             let textLabel = UILabel()
@@ -129,7 +94,6 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
             
             stackView.addArrangedSubview(textLabel)
         }
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         self.view.addSubview(stackView)
@@ -142,35 +106,65 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
         tableView.register(TableCell.self, forCellReuseIdentifier: "cellID")
         view.addSubview(tableView)
         
+        tableView.allowsMultipleSelection = true
+        
+        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: infoView.topAnchor),
             tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
         ])
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return workout.count
+        return sortedExerciseList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! TableCell
         cell.backgroundColor = UIColor.white
-        cell.exerciseName.text = workout[indexPath.row].exerciseName
-        cell.exerciseTime.text = String(workout[indexPath.row].exerciseTime)
+        cell.exerciseName.text = sortedExerciseList[indexPath.row].exerciseName
+        cell.exerciseTime.text = String(sortedExerciseList[indexPath.row].exerciseTime)
         cell.exerciseTime.text! += " min"
         
-        var numberOfReps = "0"
-        if answerObject?.workoutType == "bodybuilding" {
-            numberOfReps = "8-12"
-        }else{
-            numberOfReps = "4-6"
-        }
-        cell.exerciseReps.text = String(numberOfReps)
-        cell.exerciseReps.text! += " reps"
+        cell.exerciseBodyPart.text = sortedExerciseList[indexPath.row].exerciseBPart
+        
+        let selectedBackgroundColor = UIView()
+        selectedBackgroundColor.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = selectedBackgroundColor
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //cell selected
+        let cell = tableView.cellForRow(at: indexPath) as! TableCell
+        selectedExercises.append(sortedExerciseList[indexPath.row])
+        currentTotalTime += sortedExerciseList[indexPath.row].exerciseTime
+        currentTotalNumberOfExercises += 1
+        totalMinutesLabel.text = String(currentTotalTime)
+        totalExercisesLabel.text = String(currentTotalNumberOfExercises)
+        cell.cellView.backgroundColor = UIColor.init(red: CGFloat(41/255.0), green: CGFloat(150/255.0), blue: CGFloat(66/255.0), alpha: CGFloat(1.0))
+
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        //cell deselected
+        let cell = tableView.cellForRow(at: indexPath) as! TableCell
+        for i in 0...selectedExercises.count-1{
+           if selectedExercises[i].exerciseName == sortedExerciseList[indexPath.row].exerciseName {
+                currentTotalTime -= sortedExerciseList[indexPath.row].exerciseTime
+                selectedExercises.remove(at: i)
+                break
+                
+            }
+        }
+        currentTotalNumberOfExercises -= 1
+        totalMinutesLabel.text = String(currentTotalTime)
+        totalExercisesLabel.text = String(currentTotalNumberOfExercises)
+        
+        cell.cellView.backgroundColor = UIColor.orange
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -209,9 +203,9 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
             return label
         }()
         
-        let exerciseReps:UILabel = {
+        let exerciseBodyPart:UILabel = {
             let label = UILabel()
-            label.text = "exerciseReps"
+            label.text = "bodyPart"
             label.textColor = UIColor.white
             label.font = UIFont.boldSystemFont(ofSize: 16)
             label.textAlignment = NSTextAlignment.right
@@ -232,8 +226,8 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
             addSubview(cellView)
             cellView.addSubview(exerciseName)
             cellView.addSubview(exerciseTime)
-            cellView.addSubview(exerciseReps)
-            self.selectionStyle = .none
+            
+            cellView.addSubview(exerciseBodyPart)
             
             NSLayoutConstraint.activate([
                 cellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
@@ -250,8 +244,8 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
             exerciseTime.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -5).isActive = true
             exerciseTime.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: -10).isActive = true
             
-            exerciseReps.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5).isActive = true
-            exerciseReps.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: -10).isActive = true
+            exerciseBodyPart.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5).isActive = true
+            exerciseBodyPart.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: -10).isActive = true
         }
 
         
@@ -260,6 +254,5 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
         }
         
     }
-    
-    
+
 }

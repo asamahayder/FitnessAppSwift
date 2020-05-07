@@ -11,6 +11,9 @@
 		4D4A42BA245D8C4E00141420 /* WorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A42B9245D8C4E00141420 /* WorkoutVC.swift */; };
 		4D5E06F02460B2E6007538DD /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E06EF2460B2E6007538DD /* DataBase.swift */; };
 		4D5E06F62461B35E007538DD /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E06F42461B332007538DD /* HomeScreen.swift */; };
+		4D5E06F824620899007538DD /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E06F724620899007538DD /* Workout.swift */; };
+		4D5E06FF2463218B007538DD /* WorkoutFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E06FE2463218B007538DD /* WorkoutFinishedVC.swift */; };
+		4D5E0701246414DF007538DD /* CustomWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E0700246414DF007538DD /* CustomWorkoutVC.swift */; };
 		4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE922244503EC00B860A9 /* AppDelegate.swift */; };
 		4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE924244503EC00B860A9 /* SceneDelegate.swift */; };
 		4D7FE927244503EC00B860A9 /* GenerateWorkout_TypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE926244503EC00B860A9 /* GenerateWorkout_TypeVC.swift */; };
@@ -31,6 +34,9 @@
 		4D4A42B9245D8C4E00141420 /* WorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVC.swift; sourceTree = "<group>"; };
 		4D5E06EF2460B2E6007538DD /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		4D5E06F42461B332007538DD /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		4D5E06F724620899007538DD /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		4D5E06FE2463218B007538DD /* WorkoutFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedVC.swift; sourceTree = "<group>"; };
+		4D5E0700246414DF007538DD /* CustomWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWorkoutVC.swift; sourceTree = "<group>"; };
 		4D7FE91F244503EC00B860A9 /* FitnessAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FE922244503EC00B860A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D7FE924244503EC00B860A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 				0F5658FF2461063C00F309E2 /* Profile.swift */,
 				4D7FE924244503EC00B860A9 /* SceneDelegate.swift */,
 				4D4A42B9245D8C4E00141420 /* WorkoutVC.swift */,
+				4D5E06F724620899007538DD /* Workout.swift */,
+				4D5E06FE2463218B007538DD /* WorkoutFinishedVC.swift */,
+				4D5E0700246414DF007538DD /* CustomWorkoutVC.swift */,
 			);
 			path = FitnessAppSwift;
 			sourceTree = "<group>";
@@ -251,12 +260,15 @@
 				0F5659002461063C00F309E2 /* Profile.swift in Sources */,
 				4D7FE9392446481600B860A9 /* Answers.swift in Sources */,
 				4D7FE927244503EC00B860A9 /* GenerateWorkout_TypeVC.swift in Sources */,
+				4D5E06FF2463218B007538DD /* WorkoutFinishedVC.swift in Sources */,
 				4D9268B9244CBAA000B06856 /* GenerateWorkout_OverviewVC.swift in Sources */,
 				4D5E06F02460B2E6007538DD /* DataBase.swift in Sources */,
+				4D5E06F824620899007538DD /* Workout.swift in Sources */,
 				4D9268A6244C792800B06856 /* GenerateWorkout_ExercisesVC.swift in Sources */,
 				4D9268A8244C8C0E00B06856 /* Exercise.swift in Sources */,
 				4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */,
 				4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */,
+				4D5E0701246414DF007538DD /* CustomWorkoutVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
