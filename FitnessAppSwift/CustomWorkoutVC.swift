@@ -98,7 +98,6 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             if exercise.exerciseBPart == "chest" && !chestAdded{
                 workoutBodyParts.append("chest")
                 chestAdded = true
-                break
             }else if exercise.exerciseBPart == "back" && !backAdded {
                 workoutBodyParts.append("back")
                 backAdded = true

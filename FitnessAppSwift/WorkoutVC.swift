@@ -90,6 +90,11 @@ class WorkoutVC: UIViewController {
         self.workoutType = workoutType
         self.workoutTime = workoutTime
         self.workoutBodyParts = workoutBodyParts
+        
+        print("*********testing if previous view didnt send bodyparts after chest******")
+        for bodypart in workoutBodyParts{
+            print(bodypart)
+        }
     }
     
     func finishWorkout()  {

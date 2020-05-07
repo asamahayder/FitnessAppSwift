@@ -26,6 +26,8 @@ class WorkoutFinishedVC: UIViewController {
         let workoutListFromMemory = loadWorkoutList()
         if workoutListFromMemory != nil {
             workoutList = loadWorkoutList()!
+        }else{
+            print("could not retrieve workoutList from disk")
         }
         
         //for testing purposes
@@ -100,6 +102,11 @@ class WorkoutFinishedVC: UIViewController {
         self.workoutType = workoutType
         self.workoutTime = workoutTime
         self.workoutBodyParts = workoutBodyParts
+        
+        print("*************Testing if previous view stops sending at chest")
+        for bodypart in workoutBodyParts{
+            print(bodypart)
+        }
     }
     
     func saveWorkoutList(){
@@ -115,8 +122,6 @@ class WorkoutFinishedVC: UIViewController {
     
     func loadWorkoutList() -> [Workout]?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: Workout.ArchiveURL.path) as? [Workout]
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
