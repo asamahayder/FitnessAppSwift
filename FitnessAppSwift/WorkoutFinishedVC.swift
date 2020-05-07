@@ -17,9 +17,12 @@ class WorkoutFinishedVC: UIViewController {
     var workoutTime: Int = 0
     var workoutBodyParts: [String] = []
     
-
+    @IBOutlet weak var buttonContinue: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonContinue.layer.cornerRadius = 10
+        
         let workoutListFromMemory = loadWorkoutList()
         if workoutListFromMemory != nil {
             workoutList = loadWorkoutList()!
@@ -124,6 +127,11 @@ class WorkoutFinishedVC: UIViewController {
         self.navigationItem.setHidesBackButton(false, animated:true)
     }
     
+    
+    
+    @IBAction func onContinueClicked(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
 
 

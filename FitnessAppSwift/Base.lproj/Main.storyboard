@@ -201,17 +201,55 @@
             </objects>
             <point key="canvasLocation" x="906" y="-577"/>
         </scene>
-        <!--Workout FinishedVC-->
+        <!--Workout Finished-->
         <scene sceneID="ZwM-9d-otn">
             <objects>
                 <viewController id="Jm9-SY-hUj" customClass="WorkoutFinishedVC" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mex-eX-g1V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1G-pC-UYr">
+                                <rect key="frame" x="112" y="744" width="190" height="68"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onContinueClicked:" destination="Jm9-SY-hUj" eventType="touchUpInside" id="cxX-QP-xXu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Uz-zf-1rc">
+                                <rect key="frame" x="32" y="190" width="350" height="54"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have finished the workout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q75-7d-3FS">
+                                <rect key="frame" x="50" y="294" width="314" height="72"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Uz-zf-1rc" firstAttribute="centerX" secondItem="mex-eX-g1V" secondAttribute="centerX" id="6WQ-ws-h6P"/>
+                            <constraint firstItem="q75-7d-3FS" firstAttribute="top" secondItem="2Uz-zf-1rc" secondAttribute="bottom" constant="50" id="AS3-xy-xmH"/>
+                            <constraint firstItem="iWw-dL-VOu" firstAttribute="bottom" secondItem="M1G-pC-UYr" secondAttribute="bottom" constant="50" id="Cc7-sd-mPa"/>
+                            <constraint firstItem="q75-7d-3FS" firstAttribute="leading" secondItem="iWw-dL-VOu" secondAttribute="leading" constant="50" id="FS0-dE-tZR"/>
+                            <constraint firstItem="M1G-pC-UYr" firstAttribute="centerX" secondItem="mex-eX-g1V" secondAttribute="centerX" id="NKI-8p-K1p"/>
+                            <constraint firstItem="2Uz-zf-1rc" firstAttribute="top" secondItem="iWw-dL-VOu" secondAttribute="top" constant="50" id="QFQ-HY-4us"/>
+                            <constraint firstAttribute="trailing" secondItem="q75-7d-3FS" secondAttribute="trailing" constant="50" id="XnG-GJ-qwA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iWw-dL-VOu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="G1a-du-X1x"/>
+                    <navigationItem key="navigationItem" title="Workout Finished" id="G1a-du-X1x"/>
+                    <connections>
+                        <outlet property="buttonContinue" destination="M1G-pC-UYr" id="EcE-5p-3uw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTl-bu-Z5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -645,23 +683,23 @@ you want to train?
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-10-6I5">
-                                <rect key="frame" x="45" y="285" width="324" height="68"/>
+                                <rect key="frame" x="42" y="285" width="330" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" title="Generate workout"/>
+                                <state key="normal" title="Generate Workout"/>
                                 <connections>
                                     <action selector="goToGenerateWorkout:" destination="tZg-rk-9cI" eventType="touchUpInside" id="2rW-yY-676"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oG-DG-q5A">
-                                <rect key="frame" x="66.5" y="453" width="281" height="68"/>
+                                <rect key="frame" x="53.5" y="453" width="307" height="68"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" title="Custom worout"/>
+                                <state key="normal" title="Custom Workout"/>
                                 <connections>
                                     <action selector="onCustomWorkoutClicked:" destination="tZg-rk-9cI" eventType="touchUpInside" id="WCi-kq-Mq1"/>
                                 </connections>
