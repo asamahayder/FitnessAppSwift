@@ -17,6 +17,7 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var currentTotalTime = 0
     var currentTotalNumberOfExercises = 0
     var workoutType: String = ""
+    var workoutBodyParts: [String] = []
     
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var totalExercisesLabel: UILabel!
@@ -35,7 +36,7 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         //Styling button
         startWorkoutButton.layer.cornerRadius = 10
-        startWorkoutButton.layer.borderColor = UIColor.white.cgColor
+        startWorkoutButton.layer.borderColor = UIColor.systemBlue.cgColor
         startWorkoutButton.layer.borderWidth = 5
         
         //styling infoView
@@ -48,32 +49,75 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func onStartWorkoutClicked(_ sender: Any) {
-        let alert = UIAlertController(title: "Choose workout type", message: "This wil affect the number of reps", preferredStyle: .alert)
         
+        //returning if no exercises selected
+        if selectedExercises.count == 0 {
+            return
+        }
+        
+        //Determining which bodyparts are present in the selection
+        determineBodyParts(list: selectedExercises)
+        let alert = UIAlertController(title: "Choose workout type", message: "This wil affect the number of reps", preferredStyle: .actionSheet)
+        
+        //an alert where you choose what type of training you want
         alert.addAction(UIAlertAction(title: "Bodybuilding", style: .default, handler: { _ in
         print("Bodybuilding was chosen")
             self.workoutType = "bodybuilding"
+            self.sendDataAndGoToWorkout()
         }))
         
         alert.addAction(UIAlertAction(title: "Strength", style: .default, handler: { _ in
         print("Strength was chosen")
             self.workoutType = "strength"
+            self.sendDataAndGoToWorkout()
         }))
         
-        /*self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func sendDataAndGoToWorkout(){
+        self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
         //This is a part of a Notification-Observer pattern that makes it possible to send data from one screen to the other.
         let key = Notification.Name(rawValue: startWorkoutKey)
         
         //here we prepare the data to send with the notification
-        let data : [String: Any] = ["workout" : selectedExercises, "workoutType" : answerObject!.getWorkoutType(), "workoutTime" : answerObject!.getMinutes(), "workoutBodyParts" : answerObject!.getMuscleGroups()]
+        let data : [String: Any] = ["workout" : selectedExercises, "workoutType" : workoutType, "workoutTime" : currentTotalTime, "workoutBodyParts" : workoutBodyParts]
         
         //here we are posting (sending) the notification to all observer with the same key
         NotificationCenter.default.post(name: key, object: nil, userInfo: data)
-        
-        self.present(alert, animated: true, completion: nil)*/
     }
     
-    
+    func determineBodyParts(list: [Exercise]){
+        
+        var chestAdded = false
+        var legsAdded = false
+        var backAdded = false
+        var armsAdded = false
+        
+        for exercise in list{
+            if exercise.exerciseBPart == "chest" && !chestAdded{
+                workoutBodyParts.append("chest")
+                chestAdded = true
+                break
+            }else if exercise.exerciseBPart == "back" && !backAdded {
+                workoutBodyParts.append("back")
+                backAdded = true
+            }else if exercise.exerciseBPart == "legs" && !legsAdded {
+                workoutBodyParts.append("legs")
+                legsAdded = true
+            }else if exercise.exerciseBPart == "arms" && !armsAdded {
+                workoutBodyParts.append("arms")
+                armsAdded = true
+            }
+            
+            if chestAdded && backAdded && legsAdded && armsAdded{
+                break
+            }
+            
+        }
+        
+        
+    }
     
     func addToStackView(){
         let stackView = UIStackView()
@@ -121,6 +165,21 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return sortedExerciseList.count
     }
     
+    /*func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if tableView.cellForRow(at: indexPath) == nil {
+            return
+        }
+        
+        let cell = tableView.cellForRow(at: indexPath) as! TableCell
+        
+        if cell.isSelected{
+            cell.cellView.backgroundColor = UIColor.init(red: CGFloat(41/255.0), green: CGFloat(150/255.0), blue: CGFloat(66/255.0), alpha: CGFloat(1.0))
+        }else{
+            cell.cellView.backgroundColor = UIColor.orange
+        }
+    }*/
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! TableCell
         cell.backgroundColor = UIColor.white
@@ -131,7 +190,7 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.exerciseBodyPart.text = sortedExerciseList[indexPath.row].exerciseBPart
         
         let selectedBackgroundColor = UIView()
-        selectedBackgroundColor.backgroundColor = UIColor.white
+        selectedBackgroundColor.backgroundColor = UIColor.init(red: CGFloat(171/255.0), green: CGFloat(255/255.0), blue: CGFloat(181/255.0), alpha: CGFloat(1.0))
         cell.selectedBackgroundView = selectedBackgroundColor
         
         return cell
@@ -139,19 +198,23 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //cell selected
-        let cell = tableView.cellForRow(at: indexPath) as! TableCell
+        startWorkoutButton.layer.borderColor = UIColor.white.cgColor
+        startWorkoutButton.setTitleColor(UIColor.white, for: .normal)
+        
+        //let cell = tableView.cellForRow(at: indexPath) as! TableCell
         selectedExercises.append(sortedExerciseList[indexPath.row])
         currentTotalTime += sortedExerciseList[indexPath.row].exerciseTime
         currentTotalNumberOfExercises += 1
         totalMinutesLabel.text = String(currentTotalTime)
         totalExercisesLabel.text = String(currentTotalNumberOfExercises)
-        cell.cellView.backgroundColor = UIColor.init(red: CGFloat(41/255.0), green: CGFloat(150/255.0), blue: CGFloat(66/255.0), alpha: CGFloat(1.0))
+        //cell.cellView.backgroundColor = UIColor.init(red: CGFloat(41/255.0), green: CGFloat(150/255.0), blue: CGFloat(66/255.0), alpha: CGFloat(1.0))
 
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //cell deselected
-        let cell = tableView.cellForRow(at: indexPath) as! TableCell
+        
+        //let cell = tableView.cellForRow(at: indexPath) as! TableCell
         for i in 0...selectedExercises.count-1{
            if selectedExercises[i].exerciseName == sortedExerciseList[indexPath.row].exerciseName {
                 currentTotalTime -= sortedExerciseList[indexPath.row].exerciseTime
@@ -164,7 +227,13 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         totalMinutesLabel.text = String(currentTotalTime)
         totalExercisesLabel.text = String(currentTotalNumberOfExercises)
         
-        cell.cellView.backgroundColor = UIColor.orange
+        //cell.cellView.backgroundColor = UIColor.orange
+        
+        if selectedExercises.isEmpty {
+            print("selection is now empty")
+            startWorkoutButton.layer.borderColor = UIColor.systemBlue.cgColor
+            startWorkoutButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

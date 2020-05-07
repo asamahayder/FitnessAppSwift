@@ -40,11 +40,11 @@ class WorkoutVC: UIViewController {
         buttonNext.layer.cornerRadius = 10
         
         if workoutType == "bodybuilding" {
-            workoutSets = "6"
-            workoutReps = "4-6"
-        }else{
             workoutSets = "4"
             workoutReps = "8-12"
+        }else{
+            workoutSets = "6"
+            workoutReps = "4-6"
         }
         
         loadExercise(exercise: workout[currentExercise])

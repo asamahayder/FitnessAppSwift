@@ -502,7 +502,7 @@ you want to train?
         <scene sceneID="8n1-9H-8Dt">
             <objects>
                 <viewController id="XvN-3a-mIb" customClass="Profile" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="SYD-VG-3U7">
+                    <view key="view" contentMode="scaleToFill" id="SYD-VG-3U7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -585,7 +585,7 @@ you want to train?
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="Start Workout">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="onStartWorkoutClicked:" destination="Hec-KY-fAM" eventType="touchUpInside" id="9yW-mv-asF"/>
