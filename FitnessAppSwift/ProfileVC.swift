@@ -11,6 +11,7 @@ import UIKit
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var workoutList: [Workout] = []
+    var selectedWorkout: Workout?
     
     @IBOutlet weak var pointStatusLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
@@ -76,15 +77,19 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Workout.ArchiveURL.path) as? [Workout]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToWorkoutOverview" && selectedWorkout != nil{
+            let workoutOverviewVC: ProfileWorkoutOverviewVC = segue.destination as! ProfileWorkoutOverviewVC
+            workoutOverviewVC.setWorkout(workout: selectedWorkout!)
+        }
+    }
+    
     func createTable() {
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.register(TableCell.self, forCellReuseIdentifier: "cellID")
         view.addSubview(tableView)
-        
-        tableView.allowsMultipleSelection = true
-        
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: previousWorkoutLabelContainer.bottomAnchor),
@@ -117,12 +122,10 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //cell selected
-
+        selectedWorkout = workoutList[indexPath.row]
+        performSegue(withIdentifier: "goToWorkoutOverview", sender: self)
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //cell deselected
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100

@@ -199,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKk-dJ-TBs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="-577"/>
+            <point key="canvasLocation" x="2006" y="-577"/>
         </scene>
         <!--Workout Finished-->
         <scene sceneID="ZwM-9d-otn">
@@ -253,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTl-bu-Z5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="-577"/>
+            <point key="canvasLocation" x="2799" y="-577"/>
         </scene>
         <!--Muscle Groups-->
         <scene sceneID="7G8-Wf-ix6">
@@ -684,11 +684,12 @@ you want to train?
                         <outlet property="pointStatusLabel" destination="BEN-0R-GxC" id="QZg-9d-Azo"/>
                         <outlet property="previousWorkoutLabelContainer" destination="6yE-AC-ZRN" id="riP-DU-3pK"/>
                         <outlet property="progressBar" destination="faD-sM-moP" id="gcL-lc-Jbo"/>
+                        <segue destination="gsZ-3v-A4M" kind="show" identifier="goToWorkoutOverview" id="qXB-PQ-lSe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ri6-M3-rBX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14.492753623188406" y="833.70535714285711"/>
+            <point key="canvasLocation" x="2006" y="1574"/>
         </scene>
         <!--Custom Workout-->
         <scene sceneID="W88-9h-o1Y">
@@ -774,7 +775,69 @@ you want to train?
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYA-4V-dzJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582.608695652174" y="833.70535714285711"/>
+            <point key="canvasLocation" x="2006" y="834"/>
+        </scene>
+        <!--Workout Overview-->
+        <scene sceneID="5s2-ob-CZM">
+            <objects>
+                <viewController id="gsZ-3v-A4M" customClass="ProfileWorkoutOverviewVC" customModule="FitnessAppSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ejM-RD-Fwo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWf-4C-6n2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otY-X4-HL2">
+                                        <rect key="frame" x="170.5" y="43" width="73.5" height="42"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-Eu-2cr">
+                                        <rect key="frame" x="10" y="10" width="57.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYo-ql-JSb">
+                                        <rect key="frame" x="346" y="10" width="58" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="otY-X4-HL2" firstAttribute="centerY" secondItem="ZWf-4C-6n2" secondAttribute="centerY" id="M9c-dG-pLr"/>
+                                    <constraint firstItem="otY-X4-HL2" firstAttribute="centerX" secondItem="ZWf-4C-6n2" secondAttribute="centerX" id="WeZ-Te-oNV"/>
+                                    <constraint firstItem="7Ax-Eu-2cr" firstAttribute="top" secondItem="ZWf-4C-6n2" secondAttribute="top" constant="10" id="aeu-P0-ep9"/>
+                                    <constraint firstAttribute="trailing" secondItem="lYo-ql-JSb" secondAttribute="trailing" constant="10" id="l11-Ub-dzS"/>
+                                    <constraint firstItem="7Ax-Eu-2cr" firstAttribute="leading" secondItem="ZWf-4C-6n2" secondAttribute="leading" constant="10" id="uS9-EI-BLd"/>
+                                    <constraint firstItem="lYo-ql-JSb" firstAttribute="top" secondItem="ZWf-4C-6n2" secondAttribute="top" constant="10" id="wn5-g3-ofk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZWf-4C-6n2" firstAttribute="top" secondItem="8ee-mH-viU" secondAttribute="top" id="2vO-Oz-kzm"/>
+                            <constraint firstItem="8ee-mH-viU" firstAttribute="bottom" secondItem="ZWf-4C-6n2" secondAttribute="bottom" constant="646" id="bK1-YL-ui8"/>
+                            <constraint firstItem="ZWf-4C-6n2" firstAttribute="leading" secondItem="8ee-mH-viU" secondAttribute="leading" id="mlq-a4-jVV"/>
+                            <constraint firstItem="8ee-mH-viU" firstAttribute="trailing" secondItem="ZWf-4C-6n2" secondAttribute="trailing" id="yuM-Et-4r7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8ee-mH-viU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Workout Overview" largeTitleDisplayMode="never" id="JKc-xJ-crV"/>
+                    <connections>
+                        <outlet property="labelDate" destination="otY-X4-HL2" id="bWP-ex-Y3c"/>
+                        <outlet property="labelTime" destination="lYo-ql-JSb" id="kvY-wa-KaP"/>
+                        <outlet property="labelType" destination="7Ax-Eu-2cr" id="1pN-nm-P9g"/>
+                        <outlet property="workoutInfoContainer" destination="ZWf-4C-6n2" id="Qud-8d-gd6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0z-Ja-B3V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2799" y="1574"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="1BH-ei-1Gl">
