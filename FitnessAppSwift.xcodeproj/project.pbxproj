@@ -15,6 +15,7 @@
 		4D5E06FF2463218B007538DD /* WorkoutFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E06FE2463218B007538DD /* WorkoutFinishedVC.swift */; };
 		4D5E0701246414DF007538DD /* CustomWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E0700246414DF007538DD /* CustomWorkoutVC.swift */; };
 		4D5E07032464D015007538DD /* ProfileWorkoutOverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E07022464D015007538DD /* ProfileWorkoutOverviewVC.swift */; };
+		4D5E070524657041007538DD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E070424657041007538DD /* Profile.swift */; };
 		4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE922244503EC00B860A9 /* AppDelegate.swift */; };
 		4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE924244503EC00B860A9 /* SceneDelegate.swift */; };
 		4D7FE927244503EC00B860A9 /* GenerateWorkout_TypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE926244503EC00B860A9 /* GenerateWorkout_TypeVC.swift */; };
@@ -39,6 +40,7 @@
 		4D5E06FE2463218B007538DD /* WorkoutFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedVC.swift; sourceTree = "<group>"; };
 		4D5E0700246414DF007538DD /* CustomWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWorkoutVC.swift; sourceTree = "<group>"; };
 		4D5E07022464D015007538DD /* ProfileWorkoutOverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkoutOverviewVC.swift; sourceTree = "<group>"; };
+		4D5E070424657041007538DD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		4D7FE91F244503EC00B860A9 /* FitnessAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FE922244503EC00B860A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D7FE924244503EC00B860A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				4D5E06F724620899007538DD /* Workout.swift */,
 				4D5E06FE2463218B007538DD /* WorkoutFinishedVC.swift */,
 				4D4A42B9245D8C4E00141420 /* WorkoutVC.swift */,
+				4D5E070424657041007538DD /* Profile.swift */,
 			);
 			path = FitnessAppSwift;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				4D4A42BA245D8C4E00141420 /* WorkoutVC.swift in Sources */,
 				0F5659002461063C00F309E2 /* ProfileVC.swift in Sources */,
 				4D7FE9392446481600B860A9 /* Answers.swift in Sources */,
+				4D5E070524657041007538DD /* Profile.swift in Sources */,
 				4D7FE927244503EC00B860A9 /* GenerateWorkout_TypeVC.swift in Sources */,
 				4D5E06FF2463218B007538DD /* WorkoutFinishedVC.swift in Sources */,
 				4D9268B9244CBAA000B06856 /* GenerateWorkout_OverviewVC.swift in Sources */,

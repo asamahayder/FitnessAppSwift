@@ -12,12 +12,21 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var workoutList: [Workout] = []
     var selectedWorkout: Workout?
+    var profile: Profile?
     
     @IBOutlet weak var pointStatusLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var previousWorkoutLabelContainer: UIView!
     
+    
+    @IBOutlet weak var buttonCompleted1Workout: UIButton!
+    @IBOutlet weak var buttonCompleted2Workouts: UIButton!
+    @IBOutlet weak var buttonCompleted4Workouts: UIButton!
+    @IBOutlet weak var buttonReachedLevel1: UIButton!
+    @IBOutlet weak var buttonReachedLevel3: UIButton!
+    @IBOutlet weak var buttonReachedLevel6: UIButton!
+   
     let tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = UIColor.white
@@ -36,17 +45,158 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("could not retrieve workoutList from disk")
         }
         
-        for workout in workoutList{
+        let profileFromMemory = loadProfile()
+        if profileFromMemory != nil {
+            profile = profileFromMemory!
+        }
+        
+        //for testing purposes
+        /*for workout in workoutList{
             print("workout 1")
             for bodypart in workout.workoutBodyParts{
                 print(bodypart)
             }
             print("##############")
-        }
+        }*/
         
+        handleFillingProfileInfo()
+        handleAchievementPictures()
         createTable()
         
     }
+    
+    @IBAction func onCompleted1WorkoutClicked(_ sender: Any) {
+        var alertTitle: String = ""
+        var alertMessage: String = ""
+        
+        alertTitle = "Complete 1 Workout"
+        if profile!.completed1Workout == "true" {
+            alertMessage = "You already have this achievement. Total completed workouts are: \(profile!.completedWorkoutCount)"
+        }else{
+            alertMessage = "You do not have this achievement. Total completed workouts are: \(profile!.completedWorkoutCount)"
+        }
+        
+        onImagePressed(alertTitle: alertTitle, alertMessage: alertMessage)
+    }
+    
+    
+    @IBAction func onCompleted2WorkoutsClicked(_ sender: Any) {
+        var alertTitle: String = ""
+        var alertMessage: String = ""
+        
+        alertTitle = "Complete 2 Workouts"
+        if profile!.completed2Workouts == "true" {
+            alertMessage = "You already have this achievement. Total completed workouts are: \(profile!.completedWorkoutCount)"
+        }else{
+            alertMessage = "You do not have this achievement. Total completed workouts are: \(profile!.completedWorkoutCount)"
+        }
+        
+        onImagePressed(alertTitle: alertTitle, alertMessage: alertMessage)
+        
+    }
+    
+    
+    @IBAction func onCompleted4WorkoutsClicked(_ sender: Any) {
+        var alertTitle: String = ""
+        var alertMessage: String = ""
+        
+        alertTitle = "Complete 4 Workouts"
+        if profile!.completed4Workouts == "true" {
+            alertMessage = "You already have this achievement. Total completed workouts are: \(profile!.completedWorkoutCount)"
+        }else{
+            alertMessage = "You do not have this achievement. Total completed workouts are: \(profile!.completedWorkoutCount)"
+        }
+        
+        onImagePressed(alertTitle: alertTitle, alertMessage: alertMessage)
+        
+    }
+    
+    @IBAction func onReachedLevel1Clicked(_ sender: Any) {
+        var alertTitle: String = ""
+        var alertMessage: String = ""
+        
+        alertTitle = "Reach level 1"
+        if profile!.reachedLVL1 == "true" {
+            alertMessage = "You already have this achievement. Your level is: \(profile!.currentLVL)"
+        }else{
+            alertMessage = "You do not have this achievement. Your level is: \(profile!.currentLVL)"
+        }
+        
+        onImagePressed(alertTitle: alertTitle, alertMessage: alertMessage)
+        
+    }
+    
+    
+    @IBAction func onReachedLevel3Clicked(_ sender: Any) {
+        var alertTitle: String = ""
+        var alertMessage: String = ""
+        
+        alertTitle = "Reach level 3"
+        if profile!.reachedLVL3 == "true" {
+            alertMessage = "You already have this achievement. Your level is: \(profile!.currentLVL)"
+        }else{
+            alertMessage = "You do not have this achievement. Your level is: \(profile!.currentLVL)"
+        }
+        
+        onImagePressed(alertTitle: alertTitle, alertMessage: alertMessage)
+        
+    }
+    
+    
+    @IBAction func onReachedLevel6Clicked(_ sender: Any) {
+        var alertTitle: String = ""
+        var alertMessage: String = ""
+        
+        alertTitle = "Reach level 6"
+        if profile!.reachedLVL6 == "true" {
+            alertMessage = "You already have this achievement. Your level is: \(profile!.currentLVL)"
+        }else{
+            alertMessage = "You do not have this achievement. Your level is: \(profile!.currentLVL)"
+        }
+        
+        onImagePressed(alertTitle: alertTitle, alertMessage: alertMessage)
+        
+    }
+    
+    func onImagePressed(alertTitle: String, alertMessage:String){
+        //let image = recognizer.view as! UIImageView
+        print("image tapped")
+        
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .actionSheet)
+        
+        //an alert where you choose what type of training you want
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func handleAchievementPictures(){
+        if profile!.completed1Workout == "true" {
+            buttonCompleted1Workout.setBackgroundImage(UIImage(named:"Completed1WorkoutImage"), for: .normal)
+        }
+        if profile!.completed2Workouts == "true" {
+            buttonCompleted2Workouts.setBackgroundImage(UIImage(named:"Completed2WorkoutsImage"), for: .normal)
+        }
+        if profile!.completed4Workouts == "true" {
+            buttonCompleted4Workouts.setBackgroundImage(UIImage(named:"Completed4WorkoutsImage"), for: .normal)
+        }
+        if profile!.reachedLVL1 == "true" {
+            buttonReachedLevel1.setBackgroundImage(UIImage(named:"ReachedLevel1Image"), for: .normal)
+        }
+        if profile!.reachedLVL3 == "true" {
+            buttonReachedLevel3.setBackgroundImage(UIImage(named:"ReachedLevel3Image"), for: .normal)
+        }
+        if profile!.reachedLVL6 == "true" {
+            buttonReachedLevel6.setBackgroundImage(UIImage(named:"ReachedLevel6Image"), for: .normal)
+        }
+        
+    }
+    
+    
+    
+    
     
     func addToStackView(){
         let stackView = UIStackView()
@@ -75,6 +225,17 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func loadWorkoutList() -> [Workout]?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: Workout.ArchiveURL.path) as? [Workout]
+    }
+    
+    func loadProfile() -> Profile?{
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Profile.ArchiveURL.path) as? Profile
+    }
+    
+    func handleFillingProfileInfo() {
+        levelLabel.text = profile!.currentLVL
+        pointStatusLabel.text = profile!.currentEXP + "/300"
+        let progressValue: Float = Float(profile!.currentEXP)!/300.0
+        progressBar.setProgress(progressValue, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

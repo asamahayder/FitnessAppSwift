@@ -16,9 +16,7 @@ class HomeScreen: UIViewController {
     var workoutTime: Int = 0
     var workoutBodyParts: [String] = []
     
-    
-    
-    
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var buttonGenerateWorkout: UIButton!
     @IBOutlet weak var buttonCustomWorkout: UIButton!
@@ -27,6 +25,15 @@ class HomeScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Checking if this is the first launch of the app
+        if defaults.bool(forKey: "First Launch") == false {
+            //First Launch
+            print("This is the first launch")
+            createAndSaveProfile()
+            defaults.set(true, forKey: "First Launch")
+        }
+        
         createObservers()
 
         // rounded buttons
@@ -37,6 +44,20 @@ class HomeScreen: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func createAndSaveProfile(){
+        //Only runs at first launch
+        let profile:Profile = Profile(currentLVL: "0", currentEXP: "0", reachedLVL1: "false", reachedLVL3: "false", reachedLVL6: "false", completed1Workout: "false", completed2Workouts: "false", completed4Workouts: "false", completedWorkoutCount: "0")!
+        
+        let savedSuccessfully = NSKeyedArchiver.archiveRootObject(profile, toFile: Profile.ArchiveURL.path)
+        
+        if savedSuccessfully {
+           print("profile created and saved successfully")
+        }else{
+            print("Did not save profile successfully!")
+        }
+        
     }
     
     func createObservers() {

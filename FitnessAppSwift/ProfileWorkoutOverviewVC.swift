@@ -113,7 +113,7 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
         let key = Notification.Name(rawValue: startWorkoutKey)
         
         //here we prepare the data to send with the notification
-        let data : [String: Any] = ["workout" : exerciseList, "workoutType" : workoutType, "workoutTime" : Int(workoutTime), "workoutBodyParts" : workoutBodyParts]
+        let data : [String: Any] = ["workout" : exerciseList, "workoutType" : workoutType, "workoutTime" : Int(workoutTime)!, "workoutBodyParts" : workoutBodyParts]
         
         //here we are posting (sending) the notification to all observer with the same key
         NotificationCenter.default.post(name: key, object: nil, userInfo: data)
