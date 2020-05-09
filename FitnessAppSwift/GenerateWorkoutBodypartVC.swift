@@ -29,6 +29,7 @@ class GenerateWorkoutBodypartVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateButtonDoneColor()
         title = "Muscle Groups"
         
         //rounded buttons
@@ -43,6 +44,14 @@ class GenerateWorkoutBodypartVC: UIViewController {
         answerObject = object
     }
     
+    func updateButtonDoneColor(){
+        if chosenGroupsCount == 0 {
+            doneButton.backgroundColor = UIColor.gray
+        }else{
+            doneButton.backgroundColor = UIColor.systemBlue
+        }
+    }
+    
     func removeFromMuscleGroups (group: String){
         for (i, currentGroup) in chosenMuscleGroups.enumerated(){
             if currentGroup == group{
@@ -54,9 +63,10 @@ class GenerateWorkoutBodypartVC: UIViewController {
     @IBAction func chestChosen(_ sender: Any) {
         if chestAlreadyChosen{
             removeFromMuscleGroups(group: "chest")
-            chestButton.backgroundColor = UIColor.orange
+            chestButton.backgroundColor = UIColor.systemOrange
             chosenGroupsCount -= 1
             chestAlreadyChosen = false
+            updateButtonDoneColor()
             return
         }
         if chosenGroupsCount >= 2 {
@@ -66,15 +76,17 @@ class GenerateWorkoutBodypartVC: UIViewController {
         chestAlreadyChosen = true
         chestButton.backgroundColor = UIColor.green
         chosenGroupsCount += 1
+        updateButtonDoneColor()
     }
     
     
     @IBAction func backChosen(_ sender: Any) {
         if backAlreadyChosen{
             removeFromMuscleGroups(group: "back")
-            backButton.backgroundColor = UIColor.orange
+            backButton.backgroundColor = UIColor.systemOrange
             chosenGroupsCount -= 1
             backAlreadyChosen = false
+            updateButtonDoneColor()
             return
         }
         if chosenGroupsCount >= 2 {
@@ -84,15 +96,17 @@ class GenerateWorkoutBodypartVC: UIViewController {
         backAlreadyChosen = true
         backButton.backgroundColor = UIColor.green
         chosenGroupsCount += 1
+        updateButtonDoneColor()
     }
     
     
     @IBAction func armsChosen(_ sender: Any) {
         if armsAlreadyChosen{
             removeFromMuscleGroups(group: "arms")
-            armsButton.backgroundColor = UIColor.orange
+            armsButton.backgroundColor = UIColor.systemOrange
             chosenGroupsCount -= 1
             armsAlreadyChosen = false
+            updateButtonDoneColor()
             return
         }
         if chosenGroupsCount >= 2{
@@ -102,14 +116,16 @@ class GenerateWorkoutBodypartVC: UIViewController {
         armsAlreadyChosen = true
         armsButton.backgroundColor = UIColor.green
         chosenGroupsCount += 1
+        updateButtonDoneColor()
     }
     
     @IBAction func legsChosen(_ sender: Any) {
         if legsAlreadyChosen{
             removeFromMuscleGroups(group: "legs")
-            legsButton.backgroundColor = UIColor.orange
+            legsButton.backgroundColor = UIColor.systemOrange
             chosenGroupsCount -= 1
             legsAlreadyChosen = false
+            updateButtonDoneColor()
             return
         }
         if chosenGroupsCount >= 2{
@@ -119,10 +135,15 @@ class GenerateWorkoutBodypartVC: UIViewController {
         legsAlreadyChosen = true
         legsButton.backgroundColor = UIColor.green
         chosenGroupsCount += 1
+        updateButtonDoneColor()
     }
     
     
     @IBAction func done(_ sender: Any) {
+        if chosenMuscleGroups.isEmpty{
+            return
+        }
+        
         if answerObject != nil{
             answerObject!.setMuscleGroups(listOfMuscleGroups: chosenMuscleGroups)
             performSegue(withIdentifier: "seg2", sender: self)

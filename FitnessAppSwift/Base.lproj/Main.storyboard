@@ -364,7 +364,6 @@
                                 </state>
                                 <connections>
                                     <action selector="done:" destination="FBp-HY-98S" eventType="touchUpInside" id="nPR-Mh-m6u"/>
-                                    <action selector="legsChosen:" destination="FBp-HY-98S" eventType="touchUpInside" id="aMP-br-RBH"/>
                                 </connections>
                             </button>
                         </subviews>
