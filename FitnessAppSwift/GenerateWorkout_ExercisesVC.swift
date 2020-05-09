@@ -97,17 +97,17 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
     func fillWorkout() {
         let lowerBound:Int = 0
         let higherBound:Int = searchQuery.count-1
-        var numberOfIterations = 0
+        var numberOfExerciseTaken = 0
         repeat{
-            numberOfIterations += 1
             //randomized implementation
             let intRandom = Int.random(in: lowerBound...higherBound)
             if searchQuery[intRandom].getIsFlagged() == false{
+                numberOfExerciseTaken += 1
                 workout.append(searchQuery[intRandom])
                 currentTime += searchQuery[intRandom].exerciseTime
                 searchQuery[intRandom].setIsFlagged(bool: true)
             }
-        }while (currentTime < (answerObject?.getMinutes())! && numberOfIterations <= searchQuery.count) //Keep adding until time limit reached or no more exercises.
+        }while (currentTime < (answerObject?.getMinutes())! && numberOfExerciseTaken < searchQuery.count) //Keep adding until time limit reached or no more exercises.
         calculateActualWorkoutTime()
     }
     
