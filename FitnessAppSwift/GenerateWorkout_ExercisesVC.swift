@@ -97,7 +97,9 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
     func fillWorkout() {
         let lowerBound:Int = 0
         let higherBound:Int = searchQuery.count-1
+        var numberOfIterations = 0
         repeat{
+            numberOfIterations += 1
             //randomized implementation
             let intRandom = Int.random(in: lowerBound...higherBound)
             if searchQuery[intRandom].getIsFlagged() == false{
@@ -105,7 +107,18 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
                 currentTime += searchQuery[intRandom].exerciseTime
                 searchQuery[intRandom].setIsFlagged(bool: true)
             }
-        }while (currentTime < (answerObject?.getMinutes())!)
+        }while (currentTime < (answerObject?.getMinutes())! && numberOfIterations <= searchQuery.count) //Keep adding until time limit reached or no more exercises.
+        calculateActualWorkoutTime()
+    }
+    
+    //Often the exercises generated does not match the exact time chosen.
+    //Here we calculate the actual time
+    func calculateActualWorkoutTime(){
+        var actualTime = 0
+        for exercise in workout{
+            actualTime += exercise.exerciseTime
+        }
+        answerObject?.setMinutes(minutes: actualTime)
     }
     
     func addToStackView()  {
