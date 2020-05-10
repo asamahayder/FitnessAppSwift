@@ -40,6 +40,7 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
         button.layer.shadowOpacity = 1
         button.layer.shadowRadius = 5
         button.layer.masksToBounds = false
+        button.accessibilityLabel = "startWorkout"
         return button
     }()
     
