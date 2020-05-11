@@ -34,6 +34,10 @@ class WorkoutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ExerciseDescriptionView.layoutMargins = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+        
+        exerciseDesc.sizeToFit()
+        
         ExerciseDescriptionView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         ExerciseDescriptionView.layer.cornerRadius = 10
         buttonBack.layer.cornerRadius = 10

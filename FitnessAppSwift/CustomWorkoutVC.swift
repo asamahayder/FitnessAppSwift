@@ -39,8 +39,7 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         startWorkoutButton.layer.borderColor = UIColor.systemBlue.cgColor
         startWorkoutButton.layer.borderWidth = 5
         
-        //styling infoView
-        infoView.layer.cornerRadius = 10
+        
         
         
         sortedExerciseList = exerciseList.sorted()

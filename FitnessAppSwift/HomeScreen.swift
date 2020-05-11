@@ -25,6 +25,10 @@ class HomeScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //for supporting multiple screens
+        buttonGenerateWorkout.titleLabel?.adjustsFontSizeToFitWidth = true
+        buttonCustomWorkout.titleLabel?.adjustsFontSizeToFitWidth = true
+        buttonProfile.titleLabel?.adjustsFontSizeToFitWidth = true
         
         //Checking if this is the first launch of the app
         if defaults.bool(forKey: "First Launch") == false {

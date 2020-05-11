@@ -16,6 +16,7 @@ class GenerateWorkout_TypeVC: UIViewController {
     
     @IBOutlet weak var buttonStrengthTraining: UIButton!
     @IBOutlet weak var buttonBodyBuilding: UIButton!
+    @IBOutlet weak var labelQuestion: UILabel!
     var answerObject = Answers()
     
     
@@ -26,6 +27,11 @@ class GenerateWorkout_TypeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //for supporting multiple screens:
+        buttonStrengthTraining.titleLabel?.adjustsFontSizeToFitWidth = true
+        buttonBodyBuilding.titleLabel?.adjustsFontSizeToFitWidth = true
+        labelQuestion.adjustsFontSizeToFitWidth = true
         
         title = "Workout Type"
         

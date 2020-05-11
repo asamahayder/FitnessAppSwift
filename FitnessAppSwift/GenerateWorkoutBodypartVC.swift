@@ -29,6 +29,13 @@ class GenerateWorkoutBodypartVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //For supporting multiple screens:
+        chestButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        backButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        legsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        armsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        doneButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        
         updateButtonDoneColor()
         title = "Muscle Groups"
         

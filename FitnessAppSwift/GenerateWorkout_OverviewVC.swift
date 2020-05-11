@@ -20,6 +20,12 @@ class GenerateWorkout_OverviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //for supporting multiple screens
+        typeText.adjustsFontSizeToFitWidth = true
+        partsText.adjustsFontSizeToFitWidth = true
+        timeText.adjustsFontSizeToFitWidth = true
+        buttonGenerateWorkout.titleLabel?.adjustsFontSizeToFitWidth = true
         title = "Overview"
         fillLabels()
 
