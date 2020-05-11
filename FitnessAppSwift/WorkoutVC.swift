@@ -9,6 +9,8 @@
 import UIKit
 import YoutubePlayer_in_WKWebView
 
+//This view contains a youtube player which is supported by a 3. party library.
+
 class WorkoutVC: UIViewController {
 
     var workout:[Exercise] = []
@@ -19,7 +21,7 @@ class WorkoutVC: UIViewController {
     var workoutReps = " "
     var currentExercise = 0
     @IBOutlet weak var ExerciseDescriptionView: UIView!
-    @IBOutlet weak var videoPlayer: WKYTPlayerView!
+    @IBOutlet weak var videoPlayer: WKYTPlayerView! //The youtube view
     
     @IBOutlet weak var exerciseTitle: UILabel!
     @IBOutlet weak var exerciseTime: UILabel!
@@ -33,7 +35,6 @@ class WorkoutVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ExerciseDescriptionView.layoutMargins = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
         
         exerciseDesc.sizeToFit()
@@ -52,14 +53,10 @@ class WorkoutVC: UIViewController {
         }
         
         loadExercise(exercise: workout[currentExercise])
-        
-        print("here are all the exercises brought to this view:####################")
-        for exercise in workout{
-            print(exercise.exerciseName)
-        }
     }
     
     func loadExercise(exercise: Exercise) {
+        //Changing the back and next buttons to reflect which exercise it is.
         if currentExercise == 0 {
             buttonBack.tintColor = UIColor.white
             buttonBack.backgroundColor = UIColor.red
@@ -79,7 +76,9 @@ class WorkoutVC: UIViewController {
             buttonNext.tintColor = UIColor.white
         }
         
+        //Loading the video from a video ID
         videoPlayer.load(withVideoId: exercise.exerciseVidID)
+        
         exerciseTitle.text = exercise.exerciseName
         exerciseTime.text = String(exercise.exerciseTime) + " min"
         exerciseReps.text = workoutReps + " reps"
@@ -88,53 +87,30 @@ class WorkoutVC: UIViewController {
         exerciseDesc.text = exercise.exerciseDisc
     }
     
-    
+    //Called from previous screen.
     func setParams(workout: [Exercise], workoutType: String, workoutTime: Int, workoutBodyParts: [String]) {
         self.workout = workout
         self.workoutType = workoutType
         self.workoutTime = workoutTime
         self.workoutBodyParts = workoutBodyParts
-        
-        print("*********testing if previous view didnt send bodyparts after chest******")
-        for bodypart in workoutBodyParts{
-            print(bodypart)
-        }
     }
     
     func finishWorkout()  {
-        //finish the workout
-        //save the workout
-        //Give EXP to trainer. Calculated as minutes trained x a constant
-        //Check if reached new level and increase if yes.
-        //Check if new title and show new title if yes
-        //Maybe make phone rumble and put on some nice effects like firework
-        //The person can have different titles based on his level. So rookie if level 1 and master at level 100 etc.
-        //Check for new Achievements
-        //All of this happens on a new screen that is shown modally. A user can then press continue to return.
-        print("Finish the workout")
-        //var finish = true
+        //Displaying an alert to make sure the user wants to continue
         let alert = UIAlertController(title: "Continue?", message: "Do you want to finish the workout?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
-        print("No was chosen")
-            //finish = false
         }))
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
-        print("Yes was chosen")
-            //finish = true
             self.performSegue(withIdentifier: "goToFinishWorkout", sender: self)
         }))
         
         self.present(alert, animated: true, completion: nil)
-        
-        //if finish {
-          //  performSegue(withIdentifier: "goToFinishWorkout", sender: self)
-        //}
     }
     
     func exitWorkout() {
-        //exit here
+        //Displaying an alert to make the user wants to quit
         let alert = UIAlertController(title: "Exit?", message: "Do you want to exit the workout? The workout won't be saved or receive points", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
@@ -167,6 +143,7 @@ class WorkoutVC: UIViewController {
         }
     }
     
+    //Hiding the back button in the navigation bar to force user to use next and back buttons.
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
@@ -175,6 +152,7 @@ class WorkoutVC: UIViewController {
         self.navigationItem.setHidesBackButton(false, animated:true)
     }
     
+    //Sending data to the next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFinishWorkout"{
             let secondVC: WorkoutFinishedVC = segue.destination as! WorkoutFinishedVC

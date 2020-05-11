@@ -12,17 +12,10 @@ import UIKit
 
 class GenerateWorkout_TypeVC: UIViewController {
     
-    
-    
     @IBOutlet weak var buttonStrengthTraining: UIButton!
     @IBOutlet weak var buttonBodyBuilding: UIButton!
     @IBOutlet weak var labelQuestion: UILabel!
     var answerObject = Answers()
-    
-    
-    
-    
-    
     
     
     override func viewDidLoad() {
@@ -40,24 +33,17 @@ class GenerateWorkout_TypeVC: UIViewController {
         buttonStrengthTraining.layer.cornerRadius = 10
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // We can reset stuff in here
-    }
-    
     @IBAction func goToNextScreen(_ sender: Any) {
-        print("hey")
         performSegue(withIdentifier: "seg1", sender: self)
     }
     
     @IBAction func chooseBodyBuilding(_ sender: Any) {
         answerObject.setWorkoutType(type: "bodybuilding")
-        print("bodybuilding was choosen")
         performSegue(withIdentifier: "seg1", sender: self)
     }
     
     @IBAction func chooseStrength(_ sender: Any) {
         answerObject.setWorkoutType(type: "Strength")
-        print("Strength training was choosen")
         performSegue(withIdentifier: "seg1", sender: self)
     }
     
@@ -67,11 +53,6 @@ class GenerateWorkout_TypeVC: UIViewController {
             secondVC.setAnswerObject(object: answerObject)
         }
     }
-    
-    
-    
-    
-    
     
 }
 

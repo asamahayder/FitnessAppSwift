@@ -30,6 +30,7 @@ class WorkoutFinishedVC: UIViewController {
         super.viewDidLoad()
         buttonContinue.layer.cornerRadius = 10
         
+        //loading previous workouts from disc
         let workoutListFromMemory = loadWorkoutList()
         if workoutListFromMemory != nil {
             workoutList = loadWorkoutList()!
@@ -38,6 +39,7 @@ class WorkoutFinishedVC: UIViewController {
             print("could NOT retrieve workoutList from disk")
         }
         
+        //loading profile from disc
         let profileFromMemory = loadProfile()
         if profileFromMemory != nil{
             profile = profileFromMemory!
@@ -47,43 +49,8 @@ class WorkoutFinishedVC: UIViewController {
             print("could not retrieve profile from disk")
         }
         
-        //for testing purposes
-        /*for workout in workoutList{
-            print("the workout type is: \(workout.workoutType) the date is: \(workout.date) and the time to complete is: \(workout.workoutTime)")
-            for bodyPart in workout.workoutBodyParts{
-                print("Here is one of it's bodyparts: \(bodyPart)")
-            }
-            
-            
-            //THIS IS POSSIBLY NOT NEEDED AS IT WAS CREATED FOR TESTING PURPOSES
-            //trying to decode workout
-            struct FailableDecodable<Base : Decodable> : Decodable {
-
-                let base: Base?
-
-                init(from decoder: Decoder) throws {
-                    let container = try decoder.singleValueContainer()
-                    self.base = try? container.decode(Base.self)
-                }
-            }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            let exercises = try! jsonDecoder.decode([FailableDecodable<Exercise>].self, from: workout.workoutExercises.data(using: .utf8)!)
-            
-            for exercise in exercises{
-                if exercise.base != nil{
-                    print("Here is one of the exercises: \(String(describing: exercise.base!.exerciseName))")
-                }
-                
-            }
-            
-            //print(workout.workoutExercises)
-            
-            print("########")
-        }*/
         
-        // converting workout to json
+        // converting workout to json for saving into userdefaults.
 
         let jsonEncoder = JSONEncoder()
         
@@ -99,6 +66,7 @@ class WorkoutFinishedVC: UIViewController {
         saveProfile()
     }
     
+    //Adding the finished workout to the previous workouts
     func addToWorkoutList(){
         let date = getCurrentDateAsString()
         let workoutTimeAsString = String(workoutTime)
@@ -107,19 +75,19 @@ class WorkoutFinishedVC: UIViewController {
         
     }
     
+    //Updating user info like level and experience points
     func modifyPofile(){
         if profile != nil {
-            
             var completedWorkoutCount: Int = Int(profile!.completedWorkoutCount)!
             var currentEXP: Int = Int(profile!.currentEXP)!
             var currentLVL: Int = Int(profile!.currentLVL)!
             let EXPGained = workoutTime * 5
             currentEXP += EXPGained
             labelEXPGained.text = "EXP + \(EXPGained)"
-            print("Number of completed workouts are: \(completedWorkoutCount)")
             completedWorkoutCount += 1
             profile!.completedWorkoutCount = String(completedWorkoutCount)
             
+            //Checking if an achievement has been reached
             if completedWorkoutCount == 1{
                 hasNewAchievement = true
                 profile!.completed1Workout = "true"
@@ -133,12 +101,14 @@ class WorkoutFinishedVC: UIViewController {
                 hasNewAchievement = true
             }
             
+            //Increasing levels
             while currentEXP >= 300 {
                 hasReachedNewLVL = true
                 currentLVL += 1
                 currentEXP -= 300
                 labelNewLevel.text = "New Level: \(currentLVL)"
                 
+                //Checking for new achievements
                 if currentLVL >= 1 {
                     profile!.reachedLVL1 = "true"
                     hasNewAchievement = true
@@ -164,6 +134,7 @@ class WorkoutFinishedVC: UIViewController {
         }
     }
     
+    //Fetching the current data
     func getCurrentDateAsString() -> String{
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -172,17 +143,15 @@ class WorkoutFinishedVC: UIViewController {
         return formattedDate
     }
     
+    //This is called by the previous view controller
     func setParams(workout: [Exercise], workoutType: String, workoutTime: Int, workoutBodyParts: [String]){
         self.workout = workout
         self.workoutType = workoutType
         self.workoutTime = workoutTime
         self.workoutBodyParts = workoutBodyParts
-        
-        for bodypart in workoutBodyParts{
-            print(bodypart)
-        }
     }
     
+    //Saving the now updated previous workouts to the userDefaults
     func saveWorkoutList(){
         let savedSuccessfully = NSKeyedArchiver.archiveRootObject(workoutList, toFile: Workout.ArchiveURL.path)
         
@@ -191,9 +160,9 @@ class WorkoutFinishedVC: UIViewController {
         }else{
             print("Did not save successfully!")
         }
-        
     }
     
+    //Saving the now updated user profile
     func saveProfile(){
         let savedSuccessfully = NSKeyedArchiver.archiveRootObject(profile!, toFile: Profile.ArchiveURL.path)
         
@@ -205,30 +174,26 @@ class WorkoutFinishedVC: UIViewController {
         
     }
     
+    //Loading previous workouts from user defaults.
     func loadWorkoutList() -> [Workout]?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: Workout.ArchiveURL.path) as? [Workout]
     }
     
+    //Loading previous workouts from user defaults.
     func loadProfile() -> Profile?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: Profile.ArchiveURL.path) as? Profile
     }
     
-    
-    
+    //Hiding the backbutton
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
-    
+    //Unhiding the backbutton
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(false, animated:true)
     }
     
-    
-    
     @IBAction func onContinueClicked(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-
-
 }

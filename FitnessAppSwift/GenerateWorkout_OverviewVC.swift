@@ -26,6 +26,7 @@ class GenerateWorkout_OverviewVC: UIViewController {
         partsText.adjustsFontSizeToFitWidth = true
         timeText.adjustsFontSizeToFitWidth = true
         buttonGenerateWorkout.titleLabel?.adjustsFontSizeToFitWidth = true
+        
         title = "Overview"
         fillLabels()
 
@@ -33,6 +34,7 @@ class GenerateWorkout_OverviewVC: UIViewController {
         buttonGenerateWorkout.layer.cornerRadius = 10
     }
     
+    //Called by previous screen in prepare segue
     func setAnswerObject(object: Answers){
         answerObject = object
     }
@@ -51,15 +53,8 @@ class GenerateWorkout_OverviewVC: UIViewController {
         }
     }
     
-    
-    @IBAction func generateWorkout(_ sender: Any) {
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let fifthVC: GenerateWorkout_ExercisesVC = segue.destination as! GenerateWorkout_ExercisesVC
         fifthVC.setAnswerObject(object: answerObject!)
     }
-    
-    
 }

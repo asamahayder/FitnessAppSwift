@@ -7,6 +7,10 @@
 //
 
 import Foundation
+
+//An exercise database object
+//Includes Codable to be able to make it into a json and save into userDefaults
+//Includes Comparable to make it possible to sort a list of exercises
 class Exercise : Codable, Comparable{
     
     var exerciseName: String = ""
@@ -26,6 +30,7 @@ class Exercise : Codable, Comparable{
         settingBPartCode()
     }
     
+    //The code is used to compare two exercises and sort them
     func settingBPartCode(){
         switch exerciseBPart{
         case "chest": exerciseBPartCode = 0
@@ -36,6 +41,7 @@ class Exercise : Codable, Comparable{
         }
     }
     
+    //The following two functions allows sorting a list of exercises based on their bodypartCode
     static func <(exercise1: Exercise, exercise2: Exercise) -> Bool {
         return exercise1.exerciseBPartCode < exercise2.exerciseBPartCode
     }
@@ -44,6 +50,7 @@ class Exercise : Codable, Comparable{
         return exercise1.exerciseBPartCode == exercise2.exerciseBPartCode
     }
     
+    //The isFlagged-variable is used to not include the same exercise twice in the workout.
     func getIsFlagged() -> Bool {
         return isFlagged
     }

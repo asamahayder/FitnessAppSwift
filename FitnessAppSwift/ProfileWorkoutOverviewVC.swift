@@ -6,8 +6,12 @@
 //  Copyright © 2020 Asama Hayder. All rights reserved.
 //
 
+//some of the code regarding the tableView was inspired by the tutorial from:
+//https://blog.usejournal.com/easy-tableview-setup-tutorial-swift-4-ad48ec4cbd45
+
 import UIKit
 
+//This viewcontroller is for the view when a previous workout in profile has been clicked.
 class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var workoutDate: String = ""
@@ -63,10 +67,9 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
         createTable()
         determineBodyParts(list: exerciseList)
         setupButton()
-        
-        
     }
     
+    //Simply used to determine which body parts the chosen workout includes.
     func determineBodyParts(list: [Exercise]){
         
         var chestAdded = false
@@ -92,7 +95,6 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
             if chestAdded && backAdded && legsAdded && armsAdded{
                 break
             }
-            
         }
     }
     
@@ -106,9 +108,10 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func startWorkoutButtonPressed(sender: UIButton!){
-        //start workout
+        //Reseting the navigation hierarchi
+        self.navigationController?.popToRootViewController(animated: true)
         
-        self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
+        
         //This is a part of a Notification-Observer pattern that makes it possible to send data from one screen to the other.
         let key = Notification.Name(rawValue: startWorkoutKey)
         
@@ -117,31 +120,6 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
         
         //here we are posting (sending) the notification to all observer with the same key
         NotificationCenter.default.post(name: key, object: nil, userInfo: data)
-        
-    }
-    
-    func addToStackView(){
-        let stackView = UIStackView()
-        stackView.axis = NSLayoutConstraint.Axis.vertical
-        stackView.distribution = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing   = 16.0
-        
-        for exercise in exerciseList{
-            
-            //Text Label
-            let textLabel = UILabel()
-            textLabel.backgroundColor = UIColor.yellow
-            textLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            textLabel.text  = exercise.exerciseName
-            textLabel.textAlignment = .center
-            
-            stackView.addArrangedSubview(textLabel)
-        }
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.addSubview(stackView)
     }
     
     func createTable() {
@@ -170,6 +148,7 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
         cell.exerciseTime.text = String(exerciseList[indexPath.row].exerciseTime)
         cell.exerciseTime.text! += " min"
         
+        //Changing the rep count to reflect the chosen workout type.
         var numberOfReps = "0"
         if workoutType == "bodybuilding" {
             numberOfReps = "8-12"
@@ -230,7 +209,6 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
             return label
         }()
         
-        
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             setupView()
@@ -262,25 +240,18 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
             exerciseReps.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: -10).isActive = true
         }
 
-        
         required init?(coder aDecoder: NSCoder){
             fatalError("init(coder:) has not been implemented")
         }
         
     }
     
-    /*func setParams(workoutDate: String, workoutType: String, workoutTime: String, exerciseList: [Exercise]){
-        self.workoutDate = workoutDate
-        self.workoutType = workoutType
-        self.workoutTime = workoutTime
-        self.exerciseList = exerciseList
-    }*/
-    
     func setWorkout(workout: Workout){
         self.workout = workout
     }
     
     func decodeWorkoutExercises(){
+        //This function is for decoding a saved workout, meaning it will try to convert a json string into a Workout-object
         //trying to decode workout
         struct FailableDecodable<Base : Decodable> : Decodable {
 
@@ -310,13 +281,11 @@ class ProfileWorkoutOverviewVC: UIViewController, UITableViewDelegate, UITableVi
                 exerciseVideoID = exercise.base!.exerciseVidID
                 exerciseDesc = exercise.base!.exerciseDisc
                 exerciseBPart = exercise.base!.exerciseBPart
-                print("Here is one of the exercises: \(String(describing: exercise.base!.exerciseName))")
             }
             
             let exerciseObject: Exercise = Exercise(exerciseName: exerciseName, exerciseTime: exerciseTime, exerciseVidID: exerciseVideoID, exerciseDisc: exerciseDesc, exerciseBPart: exerciseBPart)
             
             self.exerciseList.append(exerciseObject)
-            
         }
     }
     

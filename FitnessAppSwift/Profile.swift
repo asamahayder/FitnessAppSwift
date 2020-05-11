@@ -10,6 +10,7 @@ import Foundation
 
 //This code is inspired by apples own tutorial on persisting data: https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/PersistData.html
 
+//It is prepared for saving into user defaults.
 
 class Profile: NSObject, NSCoding{
     

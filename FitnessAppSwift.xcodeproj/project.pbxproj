@@ -16,9 +16,7 @@
 		4D5E0701246414DF007538DD /* CustomWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E0700246414DF007538DD /* CustomWorkoutVC.swift */; };
 		4D5E07032464D015007538DD /* ProfileWorkoutOverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E07022464D015007538DD /* ProfileWorkoutOverviewVC.swift */; };
 		4D5E070524657041007538DD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E070424657041007538DD /* Profile.swift */; };
-		4D5E070D24673457007538DD /* FitnessAppSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E070C24673457007538DD /* FitnessAppSwiftTests.swift */; };
 		4D5E071524673638007538DD /* GenereatedWorkoutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E071424673638007538DD /* GenereatedWorkoutTest.swift */; };
-		4D5E071724676BC9007538DD /* CustomWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E071624676BC9007538DD /* CustomWorkoutTests.swift */; };
 		4D5E071F24681FD4007538DD /* FitnessAppSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E071E24681FD4007538DD /* FitnessAppSwiftUITests.swift */; };
 		4D7FE923244503EC00B860A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE922244503EC00B860A9 /* AppDelegate.swift */; };
 		4D7FE925244503EC00B860A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FE924244503EC00B860A9 /* SceneDelegate.swift */; };
@@ -63,10 +61,8 @@
 		4D5E07022464D015007538DD /* ProfileWorkoutOverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkoutOverviewVC.swift; sourceTree = "<group>"; };
 		4D5E070424657041007538DD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		4D5E070A24673457007538DD /* FitnessAppSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessAppSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D5E070C24673457007538DD /* FitnessAppSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessAppSwiftTests.swift; sourceTree = "<group>"; };
 		4D5E070E24673457007538DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D5E071424673638007538DD /* GenereatedWorkoutTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenereatedWorkoutTest.swift; sourceTree = "<group>"; };
-		4D5E071624676BC9007538DD /* CustomWorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWorkoutTests.swift; sourceTree = "<group>"; };
 		4D5E071C24681FD4007538DD /* FitnessAppSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessAppSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D5E071E24681FD4007538DD /* FitnessAppSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessAppSwiftUITests.swift; sourceTree = "<group>"; };
 		4D5E072024681FD4007538DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,10 +130,8 @@
 		4D5E070B24673457007538DD /* FitnessAppSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D5E070C24673457007538DD /* FitnessAppSwiftTests.swift */,
 				4D5E070E24673457007538DD /* Info.plist */,
 				4D5E071424673638007538DD /* GenereatedWorkoutTest.swift */,
-				4D5E071624676BC9007538DD /* CustomWorkoutTests.swift */,
 			);
 			path = FitnessAppSwiftTests;
 			sourceTree = "<group>";
@@ -386,8 +380,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D5E070D24673457007538DD /* FitnessAppSwiftTests.swift in Sources */,
-				4D5E071724676BC9007538DD /* CustomWorkoutTests.swift in Sources */,
 				4D5E071524673638007538DD /* GenereatedWorkoutTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

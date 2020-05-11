@@ -30,14 +30,14 @@ class HomeScreen: UIViewController {
         buttonCustomWorkout.titleLabel?.adjustsFontSizeToFitWidth = true
         buttonProfile.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        //Checking if this is the first launch of the app
+        //Checking if this is the first launch of the app by reading a value in userDefaults.
         if defaults.bool(forKey: "First Launch") == false {
             //First Launch
-            print("This is the first launch")
             createAndSaveProfile()
             defaults.set(true, forKey: "First Launch")
         }
         
+        //For the notification-observer pattern
         createObservers()
 
         // rounded buttons
@@ -46,14 +46,17 @@ class HomeScreen: UIViewController {
         buttonProfile.layer.cornerRadius = 10
     }
     
+    //deinitializing observers when not needed any more
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
+    //Creates a profile on the first launch of the app
     func createAndSaveProfile(){
         //Only runs at first launch
         let profile:Profile = Profile(currentLVL: "0", currentEXP: "0", reachedLVL1: "false", reachedLVL3: "false", reachedLVL6: "false", completed1Workout: "false", completed2Workouts: "false", completed4Workouts: "false", completedWorkoutCount: "0")!
         
+        //Deprecated method, should be updated to the new version to avoid having problems in new IOS. But for now the current IOS's are backwards compatible.
         let savedSuccessfully = NSKeyedArchiver.archiveRootObject(profile, toFile: Profile.ArchiveURL.path)
         
         if savedSuccessfully {
@@ -64,10 +67,12 @@ class HomeScreen: UIViewController {
         
     }
     
+    //Creating the observers that will listen for any notifications. This is used to receive data from any view controller in the app. It usually receives a generated workout and sends it to the workout view controller.
     func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeScreen.goToWorkoutScreen(_: )), name: .workoutNotification, object: nil)
     }
     
+    //This is run if an observer receieves a workout to start
     @objc func goToWorkoutScreen(_ notification: NSNotification) {
         
         if let data = notification.userInfo as? [String : Any]{
@@ -81,6 +86,7 @@ class HomeScreen: UIViewController {
         performSegue(withIdentifier: "startWorkout", sender: self)
     }
     
+    //Preparing data to send via the segue.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startWorkout"{
             let workoutVC: WorkoutVC = segue.destination as! WorkoutVC
@@ -100,6 +106,7 @@ class HomeScreen: UIViewController {
 
 }
 
+//Putting key name here to avoid having to type it manually.
 extension Notification.Name{
     static let workoutNotification = Notification.Name(rawValue: startWorkoutKey)
     

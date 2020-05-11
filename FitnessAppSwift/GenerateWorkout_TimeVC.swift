@@ -51,13 +51,14 @@ class GenerateWorkout_TimeVC: UIViewController {
         }else{
             print("Error: Did not receive an answerObject from the secondViewController")
         }
-        print("Chosen time is: \(time)")
     }
     
     func setAnswerObject(object: Answers){
         answerObject = object
     }
     
+    //Here we set some data in the next screen before we go to it.
+    //it's an easy way of sending data between two neighbor view controllers.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let fourthVC: GenerateWorkout_OverviewVC = segue.destination as! GenerateWorkout_OverviewVC
         fourthVC.setAnswerObject(object: answerObject!)

@@ -47,10 +47,12 @@ class GenerateWorkoutBodypartVC: UIViewController {
         doneButton.layer.cornerRadius = 10
     }
     
+    //This is called by previous screen
     func setAnswerObject(object:Answers) {
         answerObject = object
     }
     
+    //updating color of 'done' button based on how many body parts chosen
     func updateButtonDoneColor(){
         if chosenGroupsCount == 0 {
             doneButton.backgroundColor = UIColor.gray
@@ -147,6 +149,7 @@ class GenerateWorkoutBodypartVC: UIViewController {
     
     
     @IBAction func done(_ sender: Any) {
+        //You have to select minimum 1 body part
         if chosenMuscleGroups.isEmpty{
             return
         }
@@ -157,12 +160,9 @@ class GenerateWorkoutBodypartVC: UIViewController {
         }else{
             print("Error: Did not receive an answerObject from the first screen!")
         }
-        
-        for item in chosenMuscleGroups{
-            print(item)
-        }
     }
     
+    //Sending the data to the next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let thirdVC: GenerateWorkout_TimeVC = segue.destination as! GenerateWorkout_TimeVC
         thirdVC.setAnswerObject(object: answerObject!)

@@ -8,6 +8,9 @@
 
 import UIKit
 
+//some of the code regarding the tableView was inspired by the tutorial from:
+//https://blog.usejournal.com/easy-tableview-setup-tutorial-swift-4-ad48ec4cbd45
+
 class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var database = DataBase()
@@ -39,12 +42,8 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         startWorkoutButton.layer.borderColor = UIColor.systemBlue.cgColor
         startWorkoutButton.layer.borderWidth = 5
         
-        
-        
-        
         sortedExerciseList = exerciseList.sorted()
         createTable()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onStartWorkoutClicked(_ sender: Any) {
@@ -60,13 +59,11 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         //an alert where you choose what type of training you want
         alert.addAction(UIAlertAction(title: "Bodybuilding", style: .default, handler: { _ in
-        print("Bodybuilding was chosen")
             self.workoutType = "bodybuilding"
             self.sendDataAndGoToWorkout()
         }))
         
         alert.addAction(UIAlertAction(title: "Strength", style: .default, handler: { _ in
-        print("Strength was chosen")
             self.workoutType = "strength"
             self.sendDataAndGoToWorkout()
         }))
@@ -75,7 +72,9 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func sendDataAndGoToWorkout(){
-        self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
+        //Reseting the navigation hierarchi
+        self.navigationController?.popToRootViewController(animated: true)
+        
         //This is a part of a Notification-Observer pattern that makes it possible to send data from one screen to the other.
         let key = Notification.Name(rawValue: startWorkoutKey)
         
@@ -87,7 +86,7 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func determineBodyParts(list: [Exercise]){
-        
+        //Just determining what bodyparts the chosen exercises include.
         var chestAdded = false
         var legsAdded = false
         var backAdded = false
@@ -111,32 +110,7 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             if chestAdded && backAdded && legsAdded && armsAdded{
                 break
             }
-            
         }
-    }
-    
-    func addToStackView(){
-        let stackView = UIStackView()
-        stackView.axis = NSLayoutConstraint.Axis.vertical
-        stackView.distribution = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing   = 16.0
-        
-        for exercise in sortedExerciseList{
-            
-            //Text Label
-            let textLabel = UILabel()
-            textLabel.backgroundColor = UIColor.yellow
-            textLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            textLabel.text  = exercise.exerciseName
-            textLabel.textAlignment = .center
-            
-            stackView.addArrangedSubview(textLabel)
-        }
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.addSubview(stackView)
     }
     
     func createTable() {
@@ -146,8 +120,8 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.register(TableCell.self, forCellReuseIdentifier: "cellID")
         view.addSubview(tableView)
         
+        //Make it possible to select multiple exercises
         tableView.allowsMultipleSelection = true
-        
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -161,28 +135,12 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return sortedExerciseList.count
     }
     
-    /*func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        if tableView.cellForRow(at: indexPath) == nil {
-            return
-        }
-        
-        let cell = tableView.cellForRow(at: indexPath) as! TableCell
-        
-        if cell.isSelected{
-            cell.cellView.backgroundColor = UIColor.init(red: CGFloat(41/255.0), green: CGFloat(150/255.0), blue: CGFloat(66/255.0), alpha: CGFloat(1.0))
-        }else{
-            cell.cellView.backgroundColor = UIColor.orange
-        }
-    }*/
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! TableCell
         cell.backgroundColor = UIColor.white
         cell.exerciseName.text = sortedExerciseList[indexPath.row].exerciseName
         cell.exerciseTime.text = String(sortedExerciseList[indexPath.row].exerciseTime)
         cell.exerciseTime.text! += " min"
-        
         cell.exerciseBodyPart.text = sortedExerciseList[indexPath.row].exerciseBPart
         
         let selectedBackgroundColor = UIView()
@@ -197,20 +155,16 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         startWorkoutButton.layer.borderColor = UIColor.white.cgColor
         startWorkoutButton.setTitleColor(UIColor.white, for: .normal)
         
-        //let cell = tableView.cellForRow(at: indexPath) as! TableCell
         selectedExercises.append(sortedExerciseList[indexPath.row])
         currentTotalTime += sortedExerciseList[indexPath.row].exerciseTime
         currentTotalNumberOfExercises += 1
         totalMinutesLabel.text = String(currentTotalTime)
         totalExercisesLabel.text = String(currentTotalNumberOfExercises)
-        //cell.cellView.backgroundColor = UIColor.init(red: CGFloat(41/255.0), green: CGFloat(150/255.0), blue: CGFloat(66/255.0), alpha: CGFloat(1.0))
 
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //cell deselected
-        
-        //let cell = tableView.cellForRow(at: indexPath) as! TableCell
         for i in 0...selectedExercises.count-1{
            if selectedExercises[i].exerciseName == sortedExerciseList[indexPath.row].exerciseName {
                 currentTotalTime -= sortedExerciseList[indexPath.row].exerciseTime
@@ -223,10 +177,7 @@ class CustomWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         totalMinutesLabel.text = String(currentTotalTime)
         totalExercisesLabel.text = String(currentTotalNumberOfExercises)
         
-        //cell.cellView.backgroundColor = UIColor.orange
-        
         if selectedExercises.isEmpty {
-            print("selection is now empty")
             startWorkoutButton.layer.borderColor = UIColor.systemBlue.cgColor
             startWorkoutButton.setTitleColor(UIColor.systemBlue, for: .normal)
         }

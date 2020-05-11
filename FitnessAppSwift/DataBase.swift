@@ -7,14 +7,17 @@
 //
 
 import Foundation
+
+//This class works as a local database of exercises
+//There are advantages and disadvantages to this approach:
+//Advantage: You do not need an internet connection and the app is faster
+//Disadvantage: To add new exercises, the users have to download an update
+
 class DataBase{
     var exerciseList = [Exercise]()
     
     init() {
         fillList()
-        for item in exerciseList{
-            print(item.exerciseName)
-        }
     }
     
     func fillList()   {

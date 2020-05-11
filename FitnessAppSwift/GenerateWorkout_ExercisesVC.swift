@@ -58,13 +58,12 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
             startWorkoutButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30),
             startWorkoutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
-        
     }
     
     @objc func startWorkoutButtonPressed(sender: UIButton!){
-        //start workout
+        //Reseting the navigation hierarchi, which means we are returning to the starting screen of the navigation controller
+        self.navigationController?.popToRootViewController(animated: true)
         
-        self.navigationController?.popToRootViewController(animated: true)//Reseting the navigation hierarchi
         //This is a part of a Notification-Observer pattern that makes it possible to send data from one screen to the other.
         let key = Notification.Name(rawValue: startWorkoutKey)
         
@@ -76,9 +75,11 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    //Is called by previous screen in prepare segue
     func setAnswerObject(object: Answers) {
         answerObject = object
     }
+    
     
     func generateWorkout() {
         searchForBodyParts() //This filters the database by finding exercises that mach chosen bodyparts
@@ -113,40 +114,13 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
     }
     
     //Often the exercises generated does not match the exact time chosen.
-    //Here we calculate the actual time
+    //Here we calculate the actual total time of the generated exercises.
     func calculateActualWorkoutTime(){
         var actualTime = 0
         for exercise in workout{
             actualTime += exercise.exerciseTime
         }
         answerObject?.setMinutes(minutes: actualTime)
-    }
-    
-    func addToStackView()  {
-        
-        //Stack View
-        let stackView   = UIStackView()
-        stackView.axis  = NSLayoutConstraint.Axis.vertical
-        stackView.distribution  = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing   = 16.0
-
-        for exercise in workout{
-            
-            //Text Label
-            let textLabel = UILabel()
-            textLabel.backgroundColor = UIColor.yellow
-            textLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            textLabel.text  = exercise.exerciseName
-            textLabel.textAlignment = .center
-            
-            stackView.addArrangedSubview(textLabel)
-        }
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.addSubview(stackView)
     }
     
     func createTable() {
@@ -176,6 +150,7 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
         cell.exerciseTime.text = String(workout[indexPath.row].exerciseTime)
         cell.exerciseTime.text! += " min"
         
+        //Here we change the number of reps to relfect the chosen workout type
         var numberOfReps = "0"
         if answerObject?.workoutType == "bodybuilding" {
             numberOfReps = "8-12"
@@ -274,6 +249,5 @@ class GenerateWorkout_ExercisesVC: UIViewController, UITableViewDelegate, UITabl
         }
         
     }
-    
     
 }

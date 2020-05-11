@@ -8,6 +8,8 @@
 
 import UIKit
 
+//some of the code regarding the tableView was inspired by the tutorial from:
+//https://blog.usejournal.com/easy-tableview-setup-tutorial-swift-4-ad48ec4cbd45
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var workoutList: [Workout] = []
@@ -37,7 +39,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loading workoutList
+        
+        //loading previous workouts from disc
         let workoutListFromMemory = loadWorkoutList()
         if workoutListFromMemory != nil {
             workoutList = loadWorkoutList()!
@@ -45,19 +48,11 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("could not retrieve workoutList from disk")
         }
         
+        //loading profile from disc
         let profileFromMemory = loadProfile()
         if profileFromMemory != nil {
             profile = profileFromMemory!
         }
-        
-        //for testing purposes
-        /*for workout in workoutList{
-            print("workout 1")
-            for bodypart in workout.workoutBodyParts{
-                print(bodypart)
-            }
-            print("##############")
-        }*/
         
         handleFillingProfileInfo()
         handleAchievementPictures()
@@ -65,6 +60,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
+    //The following 6 functions are for each achievement. Each functions starts an alert that includes info about how to get the achievement.
     @IBAction func onCompleted1WorkoutClicked(_ sender: Any) {
         var alertTitle: String = ""
         var alertMessage: String = ""
@@ -158,20 +155,17 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    //This is where the actual allert is created and presented
     func onImagePressed(alertTitle: String, alertMessage:String){
-        //let image = recognizer.view as! UIImageView
-        print("image tapped")
-        
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .actionSheet)
         
-        //an alert where you choose what type of training you want
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
         }))
         
         self.present(alert, animated: true, completion: nil)
-        
     }
     
+    //Showing the completed achievement pictures if completed
     func handleAchievementPictures(){
         if profile!.completed1Workout == "true" {
             buttonCompleted1Workout.setBackgroundImage(UIImage(named:"Completed1WorkoutImage"), for: .normal)
@@ -191,38 +185,10 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if profile!.reachedLVL6 == "true" {
             buttonReachedLevel6.setBackgroundImage(UIImage(named:"ReachedLevel6Image"), for: .normal)
         }
-        
     }
     
-    
-    
-    
-    
-    func addToStackView(){
-        let stackView = UIStackView()
-        stackView.axis = NSLayoutConstraint.Axis.vertical
-        stackView.distribution = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing   = 16.0
-        
-        for workout in workoutList{
-            
-            //Text Label
-            let textLabel = UILabel()
-            textLabel.backgroundColor = UIColor.yellow
-            textLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            textLabel.text  = workout.date
-            textLabel.textAlignment = .center
-            
-            stackView.addArrangedSubview(textLabel)
-        }
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.addSubview(stackView)
-    }
-    
-    
+    //The following 2 functions are used to save and load from userDefaults
+    //They are deprecated and should be updated in the future.
     func loadWorkoutList() -> [Workout]?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: Workout.ArchiveURL.path) as? [Workout]
     }
@@ -372,10 +338,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             ])
             
             workoutDate.heightAnchor.constraint(equalToConstant: 200).isActive = true
-            //workoutDate.widthAnchor.constraint(equalToConstant: 200).isActive = true
             workoutDate.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
             workoutDate.centerXAnchor.constraint(equalTo: cellView.centerXAnchor).isActive = true
-            /*workoutDate.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 20).isActive = true*/
             
             workoutTime.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5).isActive = true
             workoutTime.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 10).isActive = true
@@ -389,7 +353,6 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         }
 
-        
         required init?(coder aDecoder: NSCoder){
             fatalError("init(coder:) has not been implemented")
         }

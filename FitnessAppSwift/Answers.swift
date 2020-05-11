@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Instances of this works as a carrier of data in the generate-workout flow.
+//Each screen receives the object, add an answer, and sends it to the next.
 class Answers{
     
     var workoutType: String?
