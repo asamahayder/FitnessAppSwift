@@ -66,8 +66,6 @@ class Profile: NSObject, NSCoding{
         aCoder.encode(completed2Workouts, forKey: PropertyKey.completed2Workouts)
         aCoder.encode(completed4Workouts, forKey: PropertyKey.completed4Workouts)
         aCoder.encode(completedWorkoutCount, forKey: PropertyKey.completedWorkoutCount)
-        
-        
     }
     
     required convenience init?(coder aCoder: NSCoder) {

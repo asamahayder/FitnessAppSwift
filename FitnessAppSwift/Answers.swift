@@ -15,7 +15,6 @@ class Answers{
     var workoutType: String?
     var muscleGroups: [String]?
     var minutes: Int?
-    var difficulty: Int?
     
     init() {
         
@@ -45,13 +44,7 @@ class Answers{
         return minutes!
     }
     
-    func setDifficulty(difficulty: Int) {
-        self.difficulty = difficulty
-    }
     
-    func getDifficulty() -> Int {
-        return difficulty!
-    }
     
     
     
